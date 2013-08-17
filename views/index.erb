@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Congress Track</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  </head>
+  <body>
+
+    <form class="signup" method="POST">
+      <label>ZIP Code</label>
+      <input name="zip"></input>
+      <label>Email Address</label>
+      <input name="email"></input>
+    </form>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+      $("input[name=zip]").blur(function() {
+        var zip = $("input[name=zip]").val();
+        $.getJSON("legislators/"+zip, function(response) {
+          console.log(response)
+
+          for (var i in response.results) {
+            var person = response.results[i];
+            $(document.body).append('<p>' + person.first_name + ' ' + person.last_name + '</p>')
+          }
+        })
+      });
+    </script>
+  </body>
+</html>
+

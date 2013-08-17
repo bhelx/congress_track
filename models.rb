@@ -31,10 +31,8 @@ class Vote
   has n, :voter_votes
 
   def self.create_from_gt_vote(gt_vote)
-    puts gt_vote
     properties = Vote.properties.map(&:name)
-    puts gt_vote.select { |k, v| { k: v } if properties.include? k }
-    self.new(gt_vote.select { |k, v| { k: v } if properties.include? k })
+    self.new(gt_vote.select { |k, v| { k: v } if properties.include? k.to_sym })
   end
 
 end
@@ -46,9 +44,26 @@ class VoterVote
   property :option_id, Integer
   property :option_key, String
   property :option_value, String
+  property :voted_on, DateTime
 
   belongs_to :vote
   belongs_to :legislator
+
+end
+
+# kind of weird singleton pattern for system config
+class System
+  include DataMapper::Resource
+
+  property :last_vote, DateTime, :default => Time.now
+
+  def instance
+    @instance ||= System.first || System.new
+  end
+
+  def last_vote
+    instance.last_vote
+  end
 end
 
 DataMapper.auto_upgrade!

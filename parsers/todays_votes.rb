@@ -10,12 +10,13 @@ url = "http://www.govtrack.us/api/v2/vote/?congress=113&chamber=house&session=20
   next if Vote.get(gt_vote['id'])
   vote = Vote.create_from_gt_vote(gt_vote)
   vote.save!
-  puts vote
 
-  gt_voter_votes = JSON.parse(Net::HTTP.get(URI("http://www.govtrack.us/api/v2/vote_voter/?limit=599&vote=#{vote['id']}")))['objects']
+  vote_data = Net::HTTP.get(URI("http://www.govtrack.us/api/v2/vote_voter/?limit=599&vote=#{vote.id}"))
+  gt_voter_votes = JSON.parse(vote_data)['objects']
   gt_voter_votes.map do |voter_vote|
     vv = VoterVote.create({
       id: voter_vote['id'],
+      voted_on: voter_vote['created'],
       legislator_id: voter_vote['person']['id'],
       vote_id: voter_vote['vote']['id'],
       option_id: voter_vote['option']['id'],
@@ -23,8 +24,8 @@ url = "http://www.govtrack.us/api/v2/vote/?congress=113&chamber=house&session=20
       option_value: voter_vote['option']['value']
     })
     vv.save!
-    puts vv
   end
+  puts gt_voter_votes.size
 
 end
 
