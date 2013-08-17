@@ -1,6 +1,11 @@
 require 'sinatra'
 require 'json'
+require 'coffee-script'
 require_relative './sunlight_api'
+
+get '/application.js' do
+  coffee :application
+end
 
 get '/' do
   erb :index

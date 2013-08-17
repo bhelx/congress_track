@@ -4,7 +4,7 @@
     <title>Congress Track</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <!--    <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> -->
   </head>
   <body>
 
@@ -13,23 +13,15 @@
       <input name="zip"></input>
       <label>Email Address</label>
       <input name="email"></input>
+
+      <div class="legislators"></div>
     </form>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script>
-      $("input[name=zip]").blur(function() {
-        var zip = $("input[name=zip]").val();
-        $.getJSON("legislators/"+zip, function(response) {
-          console.log(response)
 
-          for (var i in response.results) {
-            var person = response.results[i];
-            $(document.body).append('<p>' + person.first_name + ' ' + person.last_name + '</p>')
-          }
-        })
-      });
-    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="/application.js"></script>
   </body>
 </html>
 
