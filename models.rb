@@ -14,6 +14,8 @@ class Legislator
   property :state         , String
 
   has n, :voter_votes
+  has n, :trackings
+  has n, :users, through: :trackings
 end
 
 class Vote
@@ -51,20 +53,42 @@ class VoterVote
 
 end
 
-# kind of weird singleton pattern for system config
-class System
+class User
   include DataMapper::Resource
 
-  property :last_vote, DateTime, :default => Time.now
+  property :id, Serial
+  property :email, String, unique: true
+  property :zip, String
+  property :created_at, DateTime, default: Time.now
 
-  def instance
-    @instance ||= System.first || System.new
-  end
+  has n, :trackings
+  has n, :legislators, through: :trackings
 
-  def last_vote
-    instance.last_vote
-  end
 end
 
+class Tracking
+  include DataMapper::Resource
+
+  property :id, Serial
+
+  belongs_to :user,       key: true
+  belongs_to :legislator, key: true
+end
+
+# # kind of weird singleton pattern for system config
+# class System
+#   include DataMapper::Resource
+# 
+#   property :last_vote, DateTime, :default => Time.now
+# 
+#   def instance
+#     @instance ||= System.first || System.new
+#   end
+# 
+#   def last_vote
+#     instance.last_vote
+#   end
+# end
+# 
 DataMapper.auto_upgrade!
 

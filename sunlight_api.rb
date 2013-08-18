@@ -1,5 +1,4 @@
 require 'net/http'
-require 'json'
 
 class SunlightApi
   KEY = "77d18f5ea34c49a2ad24547cfa6cdc6a"
