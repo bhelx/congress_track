@@ -21,3 +21,8 @@ Run the web application
 ruby app.rb
 ```
 
+To send the current vote reports to your local domain:
+
+```
+ruby jobs/email.rb
+```

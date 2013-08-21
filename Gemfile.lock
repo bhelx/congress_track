@@ -61,7 +61,14 @@ GEM
     json (1.8.0)
     json_pure (1.8.0)
     libv8 (3.11.8.17)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.24)
     multi_json (1.7.9)
+    polyglot (0.3.3)
+    pony (1.5)
+      mail (> 2.0)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -75,6 +82,9 @@ GEM
       libv8 (~> 3.11.8.12)
       ref
     tilt (1.4.1)
+    treetop (1.4.15)
+      polyglot
+      polyglot (>= 0.3.1)
     uuidtools (2.1.4)
 
 PLATFORMS
@@ -84,5 +94,6 @@ DEPENDENCIES
   coffee-script
   data_mapper
   dm-sqlite-adapter
+  pony
   sinatra
   therubyracer

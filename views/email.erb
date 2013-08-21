@@ -1,0 +1,12 @@
+Report for <%= user.email %>
+
+<% report.keys.each do |vote| %>
+  <%= "Vote: #{vote.question}" %>
+  <%= "Results: #{vote.result}" %>
+
+  <% report[vote].each do |voter_vote| %>
+    <%= "#{voter_vote.legislator.first_name} #{voter_vote.legislator.last_name}: #{voter_vote.option_value}" %>
+  <% end %>
+
+<% end %>
+
