@@ -75,20 +75,5 @@ class Tracking
   belongs_to :legislator, key: true
 end
 
-# # kind of weird singleton pattern for system config
-# class System
-#   include DataMapper::Resource
-# 
-#   property :last_vote, DateTime, :default => Time.now
-# 
-#   def instance
-#     @instance ||= System.first || System.new
-#   end
-# 
-#   def last_vote
-#     instance.last_vote
-#   end
-# end
-# 
 DataMapper.auto_upgrade!
 
