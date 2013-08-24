@@ -6,25 +6,40 @@ votes = Vote.all
 template = ERB.new(IO.read('./views/email.erb'))
 
 User.each do |user|
-  voter_votes = []
-  votes.each do |vote|
+  # find votes that user has yet to see
+  unseen_votes = votes.select do |vote|
+    vote.created_at > user.last_email
+  end
+
+  return if unseen_votes.empty?
+
+  # find the voter_votes that this user cares about
+  voter_votes = unseen_votes.map do |vote|
     vvs = vote.voter_votes.select do |vv|
       user.legislators.include? vv.legislator
     end
 
-    voter_votes.concat vvs
-  end
+    vvs
+  end.flatten
 
+  # create some reports for each vote
   report = {}
   voter_votes.each do |voter_vote|
     report[voter_vote.vote] ||= []
     report[voter_vote.vote].push voter_vote
   end
 
-  Pony.mail to: user.email,
-            from: "derp@email.com",
-            subject: "Votes",
-            body: template.result(binding)
+  # send the mail and update the user object if it worked
+  begin
+    Pony.mail to: user.email,
+              from: "derp@email.com",
+              subject: "Votes",
+              body: template.result(binding)
+
+    user.update last_email: DateTime.now
+  rescue Error => e
+    puts e
+  end
 
 end
 
