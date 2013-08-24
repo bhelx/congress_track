@@ -61,7 +61,7 @@ class User
   property :email, String, unique: true
   property :zip, String
   property :created_at, DateTime, default: DateTime.now
-  property :last_email, DateTime, default: DateTime.now
+  property :last_email, DateTime, default: DateTime.now # start tracking now, ignore everything before
 
   has n, :trackings
   has n, :legislators, through: :trackings

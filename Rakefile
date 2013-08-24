@@ -15,3 +15,8 @@ task :votes do
   ruby "jobs/votes.rb"
 end
 
+desc "Pull up a pry console with access to models"
+task :console do
+  sh "pry -r./models.rb"
+end
+

@@ -11,7 +11,7 @@ User.each do |user|
     vote.created_at > user.last_email
   end
 
-  return if unseen_votes.empty?
+  next if unseen_votes.empty?
 
   # find the voter_votes that this user cares about
   voter_votes = unseen_votes.map do |vote|
