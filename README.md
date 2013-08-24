@@ -2,7 +2,7 @@
 
 ### Purpose
 
-The purpose of this project is to create a really simple way to track what your legislators are doing and give ou a direct track to providing feedback. The user will enter in their zipcode and their email. Then choose which of their legislators they want to track. They will get email reports of how their legislators are voting on what issues. We may want to give them the ability to choose the frequency of these reports.
+The purpose of this project is to create a really simple way to track what your legislators are doing and give you a direct track to providing feedback. The user will enter in their zipcode and their email then choose which of their legislators they want to track. They will get email reports of how their legislators are voting on what issues.
 
 ### TODO
 
