@@ -9,8 +9,8 @@ The purpose of this project is to create a really simple way to track what your 
 * Design front end
 * Design email (need links to information about the votes and direct links to legislators social media pages, emails, phone numbers)
 * Give user ability to choose legislators to follow
-* Give user ability to set emails settings
-* Set up a signup confirmation email
+* Give user ability to set email settings
+* Setup a signup confirmation email
 * Add an unsubscribe route and add it to the email
 * Setup SMTP with a real mailserver
 
