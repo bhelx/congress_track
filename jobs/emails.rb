@@ -15,11 +15,9 @@ User.each do |user|
 
   # find the voter_votes that this user cares about
   voter_votes = unseen_votes.map do |vote|
-    vvs = vote.voter_votes.select do |vv|
+    vote.voter_votes.select do |vv|
       user.legislators.include? vv.legislator
     end
-
-    vvs
   end.flatten
 
   # create some reports for each vote
