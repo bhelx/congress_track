@@ -22,6 +22,17 @@ Install gems
 bundle install
 ```
 
+First update legislator data:
+
+```
+bundle exec rake legislators
+```
+
+To run the web app:
+```
+bundle exec ruby app.rb
+```
+
 To see the available commands and descriptions:
 ```
 rake -T
