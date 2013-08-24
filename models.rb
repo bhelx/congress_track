@@ -21,6 +21,7 @@ end
 class Vote
   include DataMapper::Resource
 
+  property :created_at, DateTime, default: DateTime.now
   property :id, Integer, key: true
   property :question, String
   property :question_details, String
@@ -59,7 +60,7 @@ class User
   property :id, Serial
   property :email, String, unique: true
   property :zip, String
-  property :created_at, DateTime, default: Time.now
+  property :created_at, DateTime, default: DateTime.now
 
   has n, :trackings
   has n, :legislators, through: :trackings

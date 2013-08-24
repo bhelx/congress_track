@@ -72,6 +72,7 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
+    rake (10.1.0)
     ref (1.0.4)
     sinatra (1.4.3)
       rack (~> 1.4)
@@ -95,5 +96,6 @@ DEPENDENCIES
   data_mapper
   dm-sqlite-adapter
   pony
+  rake
   sinatra
   therubyracer

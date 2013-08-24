@@ -11,18 +11,9 @@ Install gems
 bundle install
 ```
 
-Sync the data on the legislators from govtrack and import into db
+To see the available commands and descriptions:
 ```
-./sync.sh
-```
-
-Run the web application
-```
-ruby app.rb
+rake -T
 ```
 
-To send the current vote reports to your local domain:
-
-```
-ruby jobs/email.rb
-```
+You need to preface each command with *bundle exec*
