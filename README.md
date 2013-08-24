@@ -12,6 +12,7 @@ The purpose of this project is to create a really simple way to track what your 
 * Give user ability to set emails settings
 * Set up a signup confirmation email
 * Add an unsubscribe route and add it to the email
+* Setup SMTP with a real mailserver
 
 ### Setup
 
