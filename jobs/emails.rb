@@ -35,7 +35,7 @@ User.each do |user|
               body: template.result(binding)
 
     user.update last_email: DateTime.now
-  rescue Error => e
+  rescue => e
     puts e
   end
 
