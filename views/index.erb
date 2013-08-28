@@ -8,15 +8,19 @@
   </head>
   <body>
 
-    <form class="signup" method="POST">
+    <form class="find-legislators" method="GET">
       <label>ZIP Code</label>
-      <input name="zip"></input>
+      <input name="zip" type="number" />
+
+      <button type='submit'>Find legislators</button>
+    </form>
+
+    <form class="signup" method="POST">
+      <ul class="legislators"></ul>
+
       <label>Email Address</label>
-      <input name="email"></input>
-
-      <div class="legislators"></div>
-
-      <input type="submit" value="Submit">
+      <input name="email" type="email" />
+      <button type='submit'>Sign up for updates</button>
     </form>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>

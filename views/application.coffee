@@ -1,13 +1,11 @@
 
 legislatorsTemplate = "
-  <ul>
-    <% _.each(legislators, function (legislator) { %>
-      <li>
-        <%= legislator.first_name %> <%= legislator.last_name %>
-        <input name='legislators[]' value='<%= legislator.govtrack_id %>' type='checkbox' checked></input>
-      </li>
-    <% }) %>
-  </ul>
+  <% _.each(legislators, function (legislator) { %>
+    <li>
+      <%= legislator.first_name %> <%= legislator.last_name %>
+      <input name='legislators[]' value='<%= legislator.govtrack_id %>' type='checkbox' checked></input>
+    </li>
+  <% }) %>
 "
 
 renderLegislators = (response) ->
@@ -15,7 +13,9 @@ renderLegislators = (response) ->
   $('.legislators').html template
 
 $(document).ready ->
-  $("input[name=zip]").blur ->
+  $(".find-legislators").submit (event) ->
+    event.preventDefault();
+
     zip = $("input[name=zip]").val()
     $.getJSON "legislators/#{zip}", renderLegislators
 
