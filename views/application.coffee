@@ -2,8 +2,10 @@
 legislatorsTemplate = "
   <% _.each(legislators, function (legislator) { %>
     <li>
-      <%= legislator.first_name %> <%= legislator.last_name %>
-      <input name='legislators[]' value='<%= legislator.govtrack_id %>' type='checkbox' checked></input>
+      <label>
+        <input name='legislators[]' value='<%= legislator.govtrack_id %>' type='checkbox' checked />
+        <%= legislator.first_name %> <%= legislator.last_name %>
+      </label>
     </li>
   <% }) %>
 "
@@ -11,6 +13,7 @@ legislatorsTemplate = "
 renderLegislators = (response) ->
   template = _.template legislatorsTemplate, legislators: response.results
   $('.legislators').html template
+  $('.signup').show()
 
 $(document).ready ->
   $(".find-legislators").submit (event) ->

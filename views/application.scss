@@ -1,0 +1,121 @@
+@mixin box-sizing($value) {
+  -moz-box-sizing: $value;
+  -webkit-box-sizing: $value;
+  box-sizing: $value;
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+body {
+  background: url('/background.png') repeat;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  width: 50em;
+  margin: 0 auto;
+}
+
+input, button {
+  border-radius: 3px;
+  font: inherit;
+  padding: 1em;
+  margin: 0;
+}
+
+button {
+  border: none;
+  background: #336C99;
+  color: #FFF;
+  cursor: pointer;
+}
+
+input[type='text'], input[type='number'], input[type='email'] {
+  border: none;
+  background: #FFF;
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+.page-header {
+  text-shadow: 0 2px rgba(0,0,0,1);
+}
+
+.page-header {
+  text-align: center;
+}
+
+.page-header p {
+  font-size: 250%;
+}
+
+.get-started-hint .arrow {
+  color: #55B4FF;
+}
+
+.find-legislators {
+  border-radius: 3px;
+  background: rgba(51, 54, 66, 0.5);
+  padding: 1em;
+  overflow: hidden;
+
+  input, button {
+    float: left;
+  }
+
+  input {
+    border-radius: 3px 0 0 3px;
+  }
+
+  button {
+    border-radius: 0 3px 3px 0;
+  }
+
+  .explanation {
+    padding-left: 1em;
+    margin: 0.375em 0 0;
+    overflow: hidden;
+  }
+}
+
+.signup {
+  text-align: center;
+  display: none;
+
+  h2 {
+    font-size: 125%;
+    text-align: left;
+  }
+
+  .legislators {
+    border-radius: 3px;
+    background: rgba(51, 54, 66, 0.5);
+    list-style: none;
+    padding: 0.75em;
+    margin-bottom: 2em;
+    overflow: hidden;
+
+    li {
+      text-align: left;
+      width: 16em;
+      float: left;
+    }
+  }
+
+  label {
+    padding: 0.25em 0;
+    display: inline-block;
+  }
+
+  input[type='email'], button {
+    width: 24.5em;
+    float: left;
+  }
+
+  button {
+    box-shadow: 0 -5px 0 0 #295475 inset;
+    float: right;
+  }
+}

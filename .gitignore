@@ -1,3 +1,4 @@
 database.db
 data/*
 .env
+.sass-cache

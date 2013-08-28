@@ -12,6 +12,10 @@ get '/application.js' do
   coffee :application
 end
 
+get '/application.css' do
+  scss :application
+end
+
 get '/' do
   erb :index
 end
