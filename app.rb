@@ -28,4 +28,14 @@ get '/legislators/:zip' do
   SunlightApi.legislators_locate(params[:zip]).to_json
 end
 
+get '/users/:token' do
+  user = User.first access_token: params[:token]
+  erb :user, locals: { user: user }
+end
+
+post '/users/:token' do
+  user = User.first access_token: params[:token]
+  user.update subscribed: params[:subscribed]
+  erb :user, locals: { user: user }
+end
 
