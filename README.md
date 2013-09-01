@@ -8,6 +8,7 @@ The purpose of this project is to create a really simple way to track what your 
 
 * Design front end
 * Design email (need links to information about the votes and direct links to legislators social media pages, emails, phone numbers)
+* Change zip lookup to geolocate or geocoding address
 * Give user ability to choose legislators to follow
 * Give user ability to set email settings
 * Setup a signup confirmation email
