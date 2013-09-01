@@ -11,7 +11,6 @@ The purpose of this project is to create a really simple way to track what your 
 * Give user ability to choose legislators to follow
 * Give user ability to set email settings
 * Setup a signup confirmation email
-* Add an unsubscribe route and add it to the email
 * Setup SMTP with a real mailserver
 
 ### Setup
