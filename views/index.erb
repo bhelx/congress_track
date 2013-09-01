@@ -12,13 +12,12 @@
       <p>Track how your Congress members are actually voting.</p>
     </header>
 
-    <p class='get-started-hint'>
-      <span class='arrow'>&darr;</span>
-      Get start by finding legislators that represent you.
-    </p>
-
     <form class="find-legislators" method="GET">
-      <input name="zip" type="number" />
+      <label class='placeheld-field'>
+        <input name="zip" type="number" required />
+        <span class='placeholder'>Zip code</span>
+      </label>
+
       <button type="submit">Find legislators</button>
 
       <p class="explanation">Enter your zip code to find your senators and representatives and sign up for email notifications on their voting acitvity.</p>
@@ -28,7 +27,10 @@
       <h2>Select legislators to track:</h2>
       <ul class="legislators"></ul>
 
-      <input name="email" type="email" />
+      <label class='placeheld-field'>
+        <input name="email" type="email" required />
+        <span class='placeholder'>Email address</span>
+      </label>
       <button type="submit">Sign up for updates</button>
     </form>
 

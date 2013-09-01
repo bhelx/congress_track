@@ -22,3 +22,8 @@ $(document).ready ->
     zip = $("input[name=zip]").val()
     $.getJSON "legislators/#{zip}", renderLegislators
 
+  $(".placeheld-field input").each ->
+    input = $(this)
+
+    input.attr "data-placeheld", !this.value.length
+    input.on "change", -> input.attr('data-placeheld', !this.value.length)

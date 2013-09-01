@@ -21,6 +21,11 @@ input, button {
   font: inherit;
   padding: 1em;
   margin: 0;
+
+  &::-moz-focus-inner {
+    border: none;
+    margin: 0;
+  }
 }
 
 button {
@@ -39,6 +44,26 @@ input[type='text'], input[type='number'], input[type='email'] {
   }
 }
 
+.placeheld-field {
+  cursor: text;
+  position: relative;
+  display: inline-block;
+
+  .placeholder {
+    color: #888;
+    line-height: 1;
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    margin-top: -0.5em;
+  }
+
+  input[data-placeheld='false'] ~ .placeholder,
+  input[data-placeheld='true']:focus ~ .placeholder {
+    visibility: hidden;
+  }
+}
+
 .page-header {
   text-shadow: 0 2px rgba(0,0,0,1);
 }
@@ -51,17 +76,13 @@ input[type='text'], input[type='number'], input[type='email'] {
   font-size: 250%;
 }
 
-.get-started-hint .arrow {
-  color: #55B4FF;
-}
-
 .find-legislators {
   border-radius: 3px;
   background: rgba(51, 54, 66, 0.5);
   padding: 1em;
   overflow: hidden;
 
-  input, button {
+  label, button {
     float: left;
   }
 
@@ -86,6 +107,7 @@ input[type='text'], input[type='number'], input[type='email'] {
 
   h2 {
     font-size: 125%;
+    font-weight: normal;
     text-align: left;
   }
 
@@ -102,11 +124,11 @@ input[type='text'], input[type='number'], input[type='email'] {
       width: 16em;
       float: left;
     }
-  }
 
-  label {
-    padding: 0.25em 0;
-    display: inline-block;
+     label {
+      padding: 0.25em 0;
+      display: inline-block;
+    }
   }
 
   input[type='email'], button {
