@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'securerandom'
 
 DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
 
@@ -60,8 +61,10 @@ class User
   property :id, Serial
   property :email, String, unique: true
   property :zip, String
+  property :subscribed, Boolean, default: true
   property :created_at, DateTime, default: DateTime.now
   property :last_email, DateTime, default: DateTime.now # start tracking now, ignore everything before
+  property :access_token, String, default: lambda { |p, r| SecureRandom.urlsafe_base64(32) }
 
   has n, :trackings
   has n, :legislators, through: :trackings

@@ -19,6 +19,3 @@ $(document).ready ->
     zip = $("input[name=zip]").val()
     $.getJSON "legislators/#{zip}", renderLegislators
 
-  # $(".signup").submit (event) ->
-  #   event.preventDefault()
-  #   false
