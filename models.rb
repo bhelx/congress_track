@@ -71,7 +71,7 @@ class User
   has n, :legislators, through: :trackings
 
   def self.active
-    all(cofirmed: true, subscribed: true)
+    all(confirmed: true, subscribed: true)
   end
 
 end
