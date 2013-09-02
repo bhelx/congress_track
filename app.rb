@@ -14,7 +14,7 @@ get '/application.js' do
 end
 
 get '/application.css' do
-  scss :application
+  scss :application, :style => :compressed
 end
 
 get '/' do
