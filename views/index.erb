@@ -15,11 +15,18 @@
 
 <form class="signup" method="POST">
   <h2>Select legislators to track:</h2>
-  <ul class="legislators"></ul>
 
-  <label class='email placeheld-field'>
-    <input name="email" type="email" required />
-    <span class='placeholder'>Email address</span>
-  </label>
-  <button type="submit">Sign up for updates</button>
+  <p class="loading-indicator">Searching...</p>
+  <p class="no-results-message">Your search returned no results.</p>
+
+  <div class="subscription-info">
+    <ul class="legislators"></ul>
+
+    <label class='email placeheld-field'>
+      <input name="email" type="email" required />
+      <span class='placeholder'>Email address</span>
+    </label>
+
+    <button type="submit">Sign up for updates</button>
+  </div>
 </form>

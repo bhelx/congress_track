@@ -20,6 +20,12 @@
   }
 }
 
+%faded-box {
+  border-radius: 3px;
+  background: rgba(51, 54, 66, 0.5);
+  padding: 0.75em;
+}
+
 * {
   @include box-sizing(border-box);
 }
@@ -111,8 +117,7 @@ input[type='text'], input[type='number'], input[type='email'] {
 }
 
 .find-legislators {
-  border-radius: 3px;
-  background: rgba(51, 54, 66, 0.5);
+  @extend %faded-box;
   padding: 1em;
   overflow: hidden;
 
@@ -146,37 +151,61 @@ input[type='text'], input[type='number'], input[type='email'] {
     text-align: left;
   }
 
-  .legislators {
-    border-radius: 3px;
-    background: rgba(51, 54, 66, 0.5);
-    list-style: none;
-    padding: 0.75em;
-    margin-bottom: 2em;
-    overflow: hidden;
+  .loading-indicator, .no-results-message, .legislators {
+    @extend %faded-box;
+  }
 
-    li {
-      text-align: left;
-      width: 17em;
+  .loading-indicator, .no-results-message {
+    display: none;
+  }
+
+  .subscription-info {
+    display: none;
+
+    .legislators {
+      margin-bottom: 1.25em;
+      list-style: none;
+      overflow: hidden;
+
+      li {
+        text-align: left;
+        width: 17em;
+        float: left;
+      }
+
+       label {
+        padding: 0.25em 0;
+        display: inline-block;
+      }
+    }
+
+    .email, button {
+      width: 26.5em;
       float: left;
     }
 
-     label {
-      padding: 0.25em 0;
-      display: inline-block;
+    .email input {
+      width: 100%;
+    }
+
+    button {
+      float: right;
     }
   }
 
-  .email, button {
-    width: 27em;
-    float: left;
+  // form states
+  &[data-state='loading'] {
+    .loading-indicator { display: block; }
   }
 
-  .email input {
-    width: 100%;
+  &[data-state='loaded'] {
+    .loading-indicator { display: none; }
+    .subscription-info { display: block; }
   }
 
-  button {
-    float: right;
+  &[data-state='no-results'] {
+    .loading-indicator, .subscription-info { display: none; }
+    .no-results-message { display: block; }
   }
 }
 

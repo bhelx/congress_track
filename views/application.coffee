@@ -12,8 +12,12 @@ legislatorsTemplate = "
 
 renderLegislators = (response) ->
   template = _.template legislatorsTemplate, legislators: response.results
-  $('.legislators').html template
-  $('.signup').show()
+  $(".legislators").html template
+
+  if !response.results.length
+    $(".signup").attr("data-state", "no-results")
+  else
+    $(".signup").attr("data-state", "loaded")
 
 $(document).ready ->
   $(".find-legislators").submit (event) ->
@@ -21,6 +25,7 @@ $(document).ready ->
 
     zip = $("input[name=zip]").val()
     $.getJSON "legislators/#{zip}", renderLegislators
+    $(".signup").attr("data-state", "loading").show()
 
   $(".placeheld-field input").each ->
     input = $(this)
