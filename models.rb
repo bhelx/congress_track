@@ -61,6 +61,7 @@ class User
   property :id, Serial
   property :email, String, unique: true
   property :zip, String
+  property :confirmed, Boolean, default: false
   property :subscribed, Boolean, default: true
   property :created_at, DateTime, default: DateTime.now
   property :last_email, DateTime, default: DateTime.now # start tracking now, ignore everything before
@@ -68,6 +69,10 @@ class User
 
   has n, :trackings
   has n, :legislators, through: :trackings
+
+  def self.active
+    all(confirmed: true, subscribed: true)
+  end
 
 end
 
