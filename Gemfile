@@ -11,4 +11,5 @@ gem "pony"
 
 group :development do
   gem "pry"
+  gem "foreman"
 end

@@ -59,6 +59,8 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     fastercsv (1.5.5)
+    foreman (0.62.0)
+      thor (>= 0.13.6)
     json (1.8.0)
     json_pure (1.8.0)
     libv8 (3.11.8.17)
@@ -89,6 +91,7 @@ GEM
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
+    thor (0.18.1)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
@@ -102,6 +105,7 @@ DEPENDENCIES
   coffee-script
   data_mapper
   dm-sqlite-adapter
+  foreman
   pony
   pry
   rake

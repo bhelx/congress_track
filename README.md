@@ -19,7 +19,7 @@ The purpose of this project is to create a really simple way to track what your 
 I'm using rbenv and ruby 1.9.3. Setup ruby how you like.
 
 Install gems
-```bash
+```
 bundle install
 ```
 
@@ -29,9 +29,14 @@ First update legislator data:
 bundle exec rake legislators
 ```
 
+Copy over .env.example file to .env and edit with key.
+```
+cp .env.example .env
+```
+
 To run the web app:
 ```
-bundle exec ruby app.rb
+foreman start
 ```
 
 To see the available commands and descriptions:

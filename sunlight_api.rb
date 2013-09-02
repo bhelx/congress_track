@@ -1,8 +1,8 @@
 require 'net/http'
 
 class SunlightApi
-  KEY = "77d18f5ea34c49a2ad24547cfa6cdc6a"
-  HOST = "congress.api.sunlightfoundation.com"
+  KEY = ENV['SUNLIGHT_KEY']
+  HOST = ENV['SUNLIGHT_HOST']
 
   def self.call(method, params)
     params['apikey'] = KEY
