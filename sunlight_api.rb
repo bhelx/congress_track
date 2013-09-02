@@ -6,7 +6,7 @@ class SunlightApi
 
   def self.call(method, params)
     params['apikey'] = KEY
-    query= params.to_a.map { |pair| "#{pair[0]}=#{pair[1]}" }.join('&')
+    query = params.to_a.map { |pair| "#{pair[0]}=#{pair[1]}" }.join('&')
     resp = Net::HTTP.start(HOST) do |http|
       http.get("#{method}?#{query}")
     end
