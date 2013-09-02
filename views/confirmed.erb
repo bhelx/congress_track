@@ -1,9 +1,7 @@
-<div class="page-confirmed">
-  <header class="page-header">
-    <p>Your subscription has been confirmed.</p>
-  </header>
+<div class="secondary-page">
+  <h1 class="page-header">Your subscription has been confirmed.</h1>
 
   <p>Voting activity updates will be sent to <strong class="keyword"><%= user.email %></strong>.</p>
 
-  <a class="edit-subscription btn" href="/users/<%= user.access_token %>">Edit subscription</a>
+  <a class="edit-subscription btn btn-large" href="/users/<%= user.access_token %>">Edit subscription</a>
 </div>

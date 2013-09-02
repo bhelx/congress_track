@@ -10,16 +10,6 @@
   transition: $value;
 }
 
-%secondary-page {
-  text-align: center;
-  margin-top: 5em;
-
-  .page-header p {
-    font-size: 200%;
-    margin-bottom: 0;
-  }
-}
-
 %faded-box {
   border-radius: 3px;
   background: rgba(51, 54, 66, 0.5);
@@ -85,6 +75,11 @@ button {
   &:active {
     box-shadow: none;
   }
+
+  &.btn-large {
+    width: 50%;
+    margin-top: 1em;
+  }
 }
 
 // write these as a <label> with your <input> and label content inside
@@ -112,16 +107,24 @@ button {
   color: #428CC4;
 }
 
+.secondary-page {
+  text-align: center;
+  margin-top: 5em;
+
+  .page-header {
+    font-size: 200%;
+    margin-bottom: 0;
+  }
+}
+
 .page-header {
   text-shadow: 0 2px rgba(0,0,0,1);
 }
 
 .page-header {
-  text-align: center;
-}
-
-.page-header p {
   font-size: 350%;
+  font-weight: normal;
+  text-align: center;
 }
 
 .find-legislators {
@@ -215,21 +218,4 @@ button {
     .loading-indicator, .subscription-info { display: none; }
     .no-results-message { display: block; }
   }
-}
-
-.page-subscribed {
-  @extend %secondary-page;
-}
-
-.page-edit-subscription, .page-confirmed {
-  @extend %secondary-page;
-
-  .edit-subscription, .unsubscribe {
-    width: 50%;
-    margin-top: 1em;
-  }
-}
-
-.page-unsubscribed {
-  @extend %secondary-page;
 }
