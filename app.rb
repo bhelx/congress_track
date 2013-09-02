@@ -33,6 +33,7 @@ post '/' do
               from: "derp@email.com",
               subject: "Confirm your email address with Congress Track",
               body: confirmation_email.result(binding)
+
     erb :subscribed, locals: { user: user }
   end
 end
@@ -49,7 +50,7 @@ end
 get '/users/:token/confirm' do
   user = User.first access_token: params[:token]
   user.update confirmed: true
-  erb :user, locals: { user: user }
+  erb :confirmed, locals: { user: user }
 end
 
 post '/users/:token' do

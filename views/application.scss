@@ -39,7 +39,6 @@ body {
 }
 
 input, button {
-  border-radius: 3px;
   font: inherit;
   padding: 1em;
   margin: 0;
@@ -51,13 +50,32 @@ input, button {
   }
 }
 
+input[type='text'], input[type='number'], input[type='email'] {
+  border-radius: 3px;
+  border: none;
+  background: #FFF;
+
+  // remove increment/decrement buttons
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
 button {
+  @extend .btn;
+}
+
+.btn {
   @include transition(all 0.15s linear);
   box-shadow: 0 -5px 0 0 #295475 inset;
+  border-radius: 3px;
   border: none;
   background-color: #336C99;
   color: #FFF;
+  text-decoration: none;
   cursor: pointer;
+  padding: 1em;
+  display: inline-block;
 
   &:hover, &:focus {
     box-shadow: 0 -5px 0 0 #2F5C7F inset;
@@ -66,16 +84,6 @@ button {
 
   &:active {
     box-shadow: none;
-  }
-}
-
-input[type='text'], input[type='number'], input[type='email'] {
-  border: none;
-  background: #FFF;
-
-  // remove increment/decrement buttons
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
   }
 }
 
@@ -209,19 +217,19 @@ input[type='text'], input[type='number'], input[type='email'] {
   }
 }
 
-.subscribed {
+.page-subscribed {
   @extend %secondary-page;
 }
 
-.edit-user {
+.page-edit-subscription, .page-confirmed {
   @extend %secondary-page;
 
-  .unsubscribe {
+  .edit-subscription, .unsubscribe {
     width: 50%;
     margin-top: 1em;
   }
 }
 
-.unsubscribed {
+.page-unsubscribed {
   @extend %secondary-page;
 }
