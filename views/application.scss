@@ -160,3 +160,15 @@ input[type='text'], input[type='number'], input[type='email'] {
     &:active { box-shadow: none; }
   }
 }
+
+.subscribed {
+  text-align: center;
+
+  .page-header p {
+    margin-bottom: 0;
+  }
+
+  .email-address {
+    color: #428CC4;
+  }
+}
