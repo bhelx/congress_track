@@ -54,6 +54,6 @@ end
 post '/users/:token' do
   user = User.first access_token: params[:token]
   user.update subscribed: params[:subscribed]
-  erb :user, locals: { user: user }
+  erb :unsubscribed, locals: { user: user }
 end
 

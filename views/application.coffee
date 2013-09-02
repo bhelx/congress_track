@@ -17,7 +17,7 @@ renderLegislators = (response) ->
 
 $(document).ready ->
   $(".find-legislators").submit (event) ->
-    event.preventDefault();
+    event.preventDefault()
 
     zip = $("input[name=zip]").val()
     $.getJSON "legislators/#{zip}", renderLegislators

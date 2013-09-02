@@ -10,6 +10,16 @@
   transition: $value;
 }
 
+%secondary-page {
+  text-align: center;
+  margin-top: 5em;
+
+  .page-header p {
+    font-size: 200%;
+    margin-bottom: 0;
+  }
+}
+
 * {
   @include box-sizing(border-box);
 }
@@ -37,12 +47,20 @@ input, button {
 
 button {
   @include transition(all 0.15s linear);
+  box-shadow: 0 -5px 0 0 #295475 inset;
   border: none;
   background-color: #336C99;
   color: #FFF;
   cursor: pointer;
 
-  &:hover, &:focus { background: #428CC4; }
+  &:hover, &:focus {
+    box-shadow: 0 -5px 0 0 #2F5C7F inset;
+    background: #428CC4;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 input[type='text'], input[type='number'], input[type='email'] {
@@ -76,6 +94,10 @@ input[type='text'], input[type='number'], input[type='email'] {
   }
 }
 
+.keyword {
+  color: #428CC4;
+}
+
 .page-header {
   text-shadow: 0 2px rgba(0,0,0,1);
 }
@@ -103,6 +125,7 @@ input[type='text'], input[type='number'], input[type='email'] {
   }
 
   button {
+    box-shadow: none;
     border-radius: 0 3px 3px 0;
   }
 
@@ -153,24 +176,23 @@ input[type='text'], input[type='number'], input[type='email'] {
   }
 
   button {
-    box-shadow: 0 -5px 0 0 #295475 inset;
     float: right;
-
-    &:hover, &:focus { box-shadow: 0 -5px 0 0 #2F5C7F inset; }
-    &:active { box-shadow: none; }
   }
 }
 
 .subscribed {
-  text-align: center;
-  margin-top: 5em;
+  @extend %secondary-page;
+}
 
-  .page-header p {
-    font-size: 200%;
-    margin-bottom: 0;
-  }
+.edit-user {
+  @extend %secondary-page;
 
-  .email-address {
-    color: #428CC4;
+  .unsubscribe {
+    width: 50%;
+    margin-top: 1em;
   }
+}
+
+.unsubscribed {
+  @extend %secondary-page;
 }
