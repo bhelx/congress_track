@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 require 'coffee-script'
+require 'sass'
 require 'pony'
 
 require_relative './models'

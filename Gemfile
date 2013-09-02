@@ -6,6 +6,7 @@ gem "sinatra"
 gem "data_mapper"
 gem "dm-sqlite-adapter"
 gem "coffee-script"
+gem "sass"
 gem "therubyracer"
 gem "pony"
 
