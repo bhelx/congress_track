@@ -18,7 +18,7 @@ body {
   background: #0A1620 url('/background.png') repeat;
   color: white;
   font-family: 'PT Sans', sans-serif;
-  width: 50em;
+  width: 55em;
   margin: 0 auto;
 }
 
@@ -85,7 +85,7 @@ input[type='text'], input[type='number'], input[type='email'] {
 }
 
 .page-header p {
-  font-size: 300%;
+  font-size: 350%;
 }
 
 .find-legislators {
@@ -133,7 +133,7 @@ input[type='text'], input[type='number'], input[type='email'] {
 
     li {
       text-align: left;
-      width: 16em;
+      width: 17em;
       float: left;
     }
 
@@ -144,7 +144,7 @@ input[type='text'], input[type='number'], input[type='email'] {
   }
 
   .email, button {
-    width: 24.5em;
+    width: 27em;
     float: left;
   }
 
@@ -163,8 +163,10 @@ input[type='text'], input[type='number'], input[type='email'] {
 
 .subscribed {
   text-align: center;
+  margin-top: 5em;
 
   .page-header p {
+    font-size: 200%;
     margin-bottom: 0;
   }
 
