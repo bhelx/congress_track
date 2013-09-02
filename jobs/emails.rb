@@ -5,7 +5,7 @@ require_relative '../models'
 votes = Vote.all
 template = ERB.new(IO.read('./views/email.erb'))
 
-User.all(subscribed: true).each do |user|
+User.active.each do |user|
   # find votes that user has yet to see
   unseen_votes = votes.select do |vote|
     vote.created_at > user.last_email
