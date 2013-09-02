@@ -1,9 +1,12 @@
 require 'sinatra'
 require 'json'
 require 'coffee-script'
+require 'pony'
 
 require_relative './models'
 require_relative './sunlight_api'
+
+confirmation_email = ERB.new(IO.read('./views/confirmation_email.erb'))
 
 get '/application.js' do
   coffee :application
@@ -20,6 +23,11 @@ post '/' do
       tracking = Tracking.new legislator: Legislator.get(legislator_id), user: user
       tracking.save!
     end
+
+    Pony.mail to: user.email,
+              from: "derp@email.com",
+              subject: "Confirm your email address with Congress Track",
+              body: confirmation_email.result(binding)
   end
   "Done!"
 end
@@ -30,6 +38,12 @@ end
 
 get '/users/:token' do
   user = User.first access_token: params[:token]
+  erb :user, locals: { user: user }
+end
+
+get '/users/:token/confirm' do
+  user = User.first access_token: params[:token]
+  user.update confirmed: true
   erb :user, locals: { user: user }
 end
 
