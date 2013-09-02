@@ -11,7 +11,6 @@ The purpose of this project is to create a really simple way to track what your 
 * Change zip lookup to geolocate or geocoding address
 * Give user ability to choose legislators to follow
 * Give user ability to set email settings
-* Setup a signup confirmation email
 * Setup SMTP with a real mailserver
 
 ### Setup
