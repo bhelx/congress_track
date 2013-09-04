@@ -1,28 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Congress Track</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <!--    <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> -->
-  </head>
-  <body>
+<h1 class="page-header">Track the voting activity of your Congress members.</h1>
 
-    <form class="signup" method="POST">
-      <label>ZIP Code</label>
-      <input name="zip"></input>
-      <label>Email Address</label>
-      <input name="email"></input>
+<form class="find-legislators" method="GET">
+  <label class="placeheld-field">
+    <input name="zip" type="number" required />
+    <span class="placeholder">Zip code</span>
+  </label>
 
-      <div class="legislators"></div>
+  <button type="submit">Find legislators</button>
 
-      <input type="submit" value="Submit">
-    </form>
+  <p class="explanation">Enter your zip code to find your senators and representatives and sign up for email notifications on their voting acitvity.</p>
+</form>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="/application.js"></script>
-  </body>
-</html>
+<form class="signup" method="POST">
+  <h2>Select legislators to track:</h2>
 
+  <p class="loading-indicator">Searching...</p>
+  <p class="no-results-message">Your search returned no results.</p>
+
+  <div class="subscription-info">
+    <ul class="legislators"></ul>
+
+    <label class="email placeheld-field">
+      <input name="email" type="email" required />
+      <span class="placeholder">Email address</span>
+    </label>
+
+    <button type="submit">Sign up for updates</button>
+  </div>
+</form>

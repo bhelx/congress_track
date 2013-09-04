@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 require 'coffee-script'
+require 'sass'
 require 'pony'
 
 require_relative './models'
@@ -10,6 +11,10 @@ confirmation_email = ERB.new(IO.read('./views/confirmation_email.erb'))
 
 get '/application.js' do
   coffee :application
+end
+
+get '/application.css' do
+  scss :application, :style => :compressed
 end
 
 get '/' do
@@ -28,8 +33,9 @@ post '/' do
               from: "derp@email.com",
               subject: "Confirm your email address with Congress Track",
               body: confirmation_email.result(binding)
+
+    erb :subscribed, locals: { user: user }
   end
-  "Done!"
 end
 
 get '/legislators/:zip' do
@@ -44,12 +50,12 @@ end
 get '/users/:token/confirm' do
   user = User.first access_token: params[:token]
   user.update confirmed: true
-  erb :user, locals: { user: user }
+  erb :confirmed, locals: { user: user }
 end
 
 post '/users/:token' do
   user = User.first access_token: params[:token]
   user.update subscribed: params[:subscribed]
-  erb :user, locals: { user: user }
+  erb :unsubscribed, locals: { user: user }
 end
 

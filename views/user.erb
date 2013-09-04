@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Congress Track</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <!--    <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> -->
-  </head>
-  <body>
-    <form method="POST">
-      <input type="hidden" name="subscribed" value="false">
-      <input type="submit" value="Unsubscribe">
-    </form>
+<form class="secondary-page" method="POST">
+  <h1 class='page-header'>Edit your subscription</h1>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-  </body>
-</html>
+  <p>Subscription for <strong class='keyword'><%= user.email %></strong> is currently active.</p>
 
+  <input type="hidden" name="subscribed" value="false">
+  <button class="unsubscribe btn-large" type="submit">Unsubscribe</button>
+</form>
