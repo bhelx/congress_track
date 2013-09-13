@@ -13,10 +13,17 @@ class Legislator
   property :middle_name   , String
   property :role          , String
   property :state         , String
+  property :site          , String
+  property :contact_form  , String
 
   has n, :voter_votes
   has n, :trackings
   has n, :users, through: :trackings
+
+  def govtrack_url
+    "http://www.govtrack.us/congress/members/#{@id}"
+  end
+
 end
 
 class Vote

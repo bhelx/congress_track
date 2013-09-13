@@ -1,0 +1,15 @@
+Report for <%= user.email %>
+
+<% report.keys.each do |vote| %>
+  <%= "Vote: #{vote.question}" %>
+  <%= "Results: #{vote.result}" %>
+  <%= "More info: #{vote.link}" %>
+
+  <% report[vote].each do |voter_vote| %>
+    <%= "#{voter_vote.legislator.first_name} #{voter_vote.legislator.last_name}: #{voter_vote.option_value}" %>
+  <% end %>
+
+<% end %>
+
+Click here to unsubscribe or change your settings:
+<%= "http://localhost:4567/users/#{user.access_token}" %>
