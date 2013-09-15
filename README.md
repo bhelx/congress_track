@@ -49,8 +49,10 @@ You need to preface each command with *bundle exec*
 Current commands:
 
 ```
-rake console      # Pull up a pry console with access to models
-rake emails       # sends emails
-rake legislators  # syncs our legislator data and database entries
-rake votes        # parses latest votes
+rake console            # Pull up a pry console with access to models
+rake emails             # sends emails
+rake legislators        # both sync and parse legislator entries
+rake parse_legislators  # parses legislator data into database entries
+rake sync_legislators   # syncs our legislator data using rsync
+rake votes              # parses latest votes
 ```

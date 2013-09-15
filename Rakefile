@@ -1,9 +1,17 @@
 
-desc "syncs our legislator data and database entries"
-task :legislators do
+desc "syncs our legislator data using rsync"
+task :sync_legislators do
   sh "rsync -avz govtrack.us::govtrackdata/congress-legislators data/"
+end
+
+desc "parses legislator data into database entries"
+task :parse_legislators do
   ruby "parsers/members.rb"
 end
+
+
+desc "both sync and parse legislator entries"
+task :legislators => ["sync_legislators", "parse_legislators"]
 
 desc "sends emails"
 task :emails do
