@@ -52,11 +52,12 @@ class Vote
   property :total_minus, Integer
   property :total_plus, Integer
   property :total_other, Integer
-  property :link, String
+  property :link, Text
 
   has n, :voter_votes
 
   def self.create_from_gt_vote(gt_vote)
+    puts gt_vote
     properties = Vote.properties.map(&:name)
     self.new(gt_vote.select { |k, v| { k: v } if properties.include? k.to_sym })
   end
