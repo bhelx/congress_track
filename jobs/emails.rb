@@ -30,8 +30,8 @@ User.active.each do |user|
   # send the mail and update the user object if it worked
   begin
     puts Pony.mail to: user.email,
-              from: "derp@email.com",
-              subject: "Votes",
+              from: "noreply@congresstrack.org",
+              subject: "Latest Votes",
               body: template.result(binding)
 
     user.update last_email: DateTime.now

@@ -31,7 +31,7 @@ post '/' do
     end
 
     Pony.mail to: user.email,
-              from: "derp@email.com",
+              from: "noreply@congresstrack.org",
               subject: "Confirm your email address with Congress Track",
               body: confirmation_email.result(binding)
 
@@ -53,7 +53,7 @@ get '/users/:token/confirm' do
   user.update confirmed: true
 
   Pony.mail to: user.email,
-            from: "derp@email.com",
+            from: "noreply@congresstrack.org",
             subject: "Welcome to Congress Track",
             body: welcome_email.result(binding)
 
