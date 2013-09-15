@@ -2,6 +2,8 @@ require 'sinatra'
 require 'data_mapper'
 require 'securerandom'
 
+DataMapper::Property::String.length(255)
+
 if settings.development?
   DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
 else
@@ -52,7 +54,7 @@ class Vote
   property :total_minus, Integer
   property :total_plus, Integer
   property :total_other, Integer
-  property :link, Text
+  property :link, String
 
   has n, :voter_votes
 
