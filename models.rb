@@ -46,7 +46,7 @@ class Vote
 
   property :created_at, DateTime, default: DateTime.now
   property :id, Integer, key: true
-  property :question, String
+  property :question, Text
   property :question_details, Text
   property :result, String
   property :total_minus, Integer
