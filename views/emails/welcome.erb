@@ -6,3 +6,6 @@ Before you start receiving email reports, we thought you might want to do a litt
   <%= legislator.full_name_and_designation %>
   <%= legislator.govtrack_url %>
 <% end %>
+
+Click here to unsubscribe or change your settings:
+<%= "#{ENV['APPLICATION_URL']}/users/#{user.access_token}" %>

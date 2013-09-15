@@ -12,4 +12,4 @@ Report for <%= user.email %>
 <% end %>
 
 Click here to unsubscribe or change your settings:
-<%= "http://localhost:4567/users/#{user.access_token}" %>
+<%= "#{ENV['APPLICATION_URL']}/users/#{user.access_token}" %>
