@@ -13,10 +13,27 @@ class Legislator
   property :middle_name   , String
   property :role          , String
   property :state         , String
+  property :site          , String
+  property :contact_form  , String
+  property :gender        , String
 
   has n, :voter_votes
   has n, :trackings
   has n, :users, through: :trackings
+
+  def govtrack_url
+    "http://www.govtrack.us/congress/members/#{@id}"
+  end
+
+  def full_name_and_designation
+    title = 'Senator'
+    if role == 'rep'
+      title = "Congress#{@gender == 'M' ? 'man' : 'woman' }"
+    end
+    affiliation = "(#{@party}, #{@state})"
+    "#{title} #{@first_name} #{@last_name} #{affiliation}"
+  end
+
 end
 
 class Vote
