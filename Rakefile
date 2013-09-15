@@ -9,7 +9,6 @@ task :parse_legislators do
   ruby "parsers/members.rb"
 end
 
-
 desc "both sync and parse legislator entries"
 task :legislators => ["sync_legislators", "parse_legislators"]
 
@@ -22,6 +21,9 @@ desc "parses latest votes"
 task :votes do
   ruby "jobs/votes.rb"
 end
+
+desc "parses new votes and sends reports"
+task :sync => ["votes", "emails"]
 
 desc "Pull up a pry console with access to models"
 task :console do
