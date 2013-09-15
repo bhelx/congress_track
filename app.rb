@@ -7,7 +7,8 @@ require_relative './email'
 require_relative './models'
 require_relative './sunlight_api'
 
-confirmation_email = ERB.new(IO.read('./views/confirmation_email.erb'))
+confirmation_email = ERB.new(IO.read('./views/emails/confirmation.erb'))
+welcome_email = ERB.new(IO.read('./views/emails/welcome.erb'))
 
 get '/application.js' do
   coffee :application
@@ -50,6 +51,12 @@ end
 get '/users/:token/confirm' do
   user = User.first access_token: params[:token]
   user.update confirmed: true
+
+  Pony.mail to: user.email,
+            from: "derp@email.com",
+            subject: "Welcome to Congress Track",
+            body: welcome_email.result(binding)
+
   erb :confirmed, locals: { user: user }
 end
 
