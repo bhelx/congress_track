@@ -25,6 +25,7 @@ members.each do |member|
     middle_name: member['name']['middle'],
     role: member['terms'].last['type'],
     state: member['terms'].last['state'],
+    gender: member['bio']['gender'],
     contact_form: latest_contact_form(member['terms']),
     site: latest_site(member['terms'])
   }

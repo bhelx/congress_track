@@ -1,0 +1,8 @@
+Thanks for confirming you address and Welcome to Congress Track.
+
+Before you start receiving email reports, we thought you might want to do a little research on your legislators' records. We get most of our data from Govtrack and find their analysis to be very accurate.
+
+<% user.legislators.each do |legislator| %>
+  <%= legislator.full_name_and_designation %>
+  <%= legislator.govtrack_url %>
+<% end %>

@@ -3,7 +3,7 @@ require 'erb'
 require_relative '../models'
 
 votes = Vote.all
-template = ERB.new(IO.read('./views/email.erb'))
+template = ERB.new(IO.read('./views/emails/report.erb'))
 
 User.active.each do |user|
   # find votes that user has yet to see
