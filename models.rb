@@ -1,7 +1,11 @@
 require 'data_mapper'
 require 'securerandom'
 
-DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
+if settings.development?
+  DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
+else
+  DataMapper.setup(:default, ENV['DATABASE_URL'])
+end
 
 class Legislator
   include DataMapper::Resource
