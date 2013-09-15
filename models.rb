@@ -19,7 +19,7 @@ class Legislator
   property :role          , String
   property :state         , String
   property :site          , String
-  property :contact_form  , String
+  property :contact_form  , String, length: 100
   property :gender        , String
 
   has n, :voter_votes
