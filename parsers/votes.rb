@@ -24,7 +24,7 @@ class VoteParser
 
       missing_reps = []
       gt_voter_votes.map do |voter_vote|
-        if Legislator.count id: voter_vote['person']['id']
+        if Legislator.count id: voter_vote['person']['id'] > 0
           vv = VoterVote.create({
             id: voter_vote['id'],
             voted_on: voter_vote['created'],
@@ -34,10 +34,10 @@ class VoteParser
             option_key: voter_vote['option']['key'],
             option_value: voter_vote['option']['value']
           })
+          vv.save
         else
           missing_reps.push voter_vote['person']['id']
         end
-        vv.save!
       end
 
       puts "parsed #{gt_voter_votes.length} voter_votes"
