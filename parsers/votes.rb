@@ -21,20 +21,28 @@ class VoteParser
 
       vote_data = Net::HTTP.get(URI("http://www.govtrack.us/api/v2/vote_voter/?limit=599&vote=#{vote.id}"))
       gt_voter_votes = JSON.parse(vote_data)['objects']
+
+      missing_reps = []
       gt_voter_votes.map do |voter_vote|
-        vv = VoterVote.create({
-          id: voter_vote['id'],
-          voted_on: voter_vote['created'],
-          legislator_id: voter_vote['person']['id'],
-          vote_id: voter_vote['vote']['id'],
-          option_id: voter_vote['option']['id'],
-          option_key: voter_vote['option']['key'],
-          option_value: voter_vote['option']['value']
-        })
+        if Legislator.count id: voter_vote['person']['id']
+          vv = VoterVote.create({
+            id: voter_vote['id'],
+            voted_on: voter_vote['created'],
+            legislator_id: voter_vote['person']['id'],
+            vote_id: voter_vote['vote']['id'],
+            option_id: voter_vote['option']['id'],
+            option_key: voter_vote['option']['key'],
+            option_value: voter_vote['option']['value']
+          })
+        else
+          missing_reps.push voter_vote['person']['id']
+        end
         vv.save!
       end
 
       puts "parsed #{gt_voter_votes.length} voter_votes"
+      puts "missing: "
+      puts missing_reps.inspect
     end
 
     true

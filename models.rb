@@ -59,7 +59,6 @@ class Vote
   has n, :voter_votes
 
   def self.create_from_gt_vote(gt_vote)
-    puts gt_vote
     properties = Vote.properties.map(&:name)
     self.new(gt_vote.select { |k, v| { k: v } if properties.include? k.to_sym })
   end
