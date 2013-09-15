@@ -91,7 +91,7 @@ class User
   property :last_email, DateTime, default: DateTime.now # start tracking now, ignore everything before
   property :access_token, String, default: lambda { |p, r| SecureRandom.urlsafe_base64(32) }
 
-  has n, :trackings
+  has n, :trackings, constraint: :destroy
   has n, :legislators, through: :trackings
 
   def self.active
