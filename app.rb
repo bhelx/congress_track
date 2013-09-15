@@ -2,8 +2,8 @@ require 'sinatra'
 require 'json'
 require 'coffee-script'
 require 'sass'
-require 'pony'
 
+require_relative './email'
 require_relative './models'
 require_relative './sunlight_api'
 

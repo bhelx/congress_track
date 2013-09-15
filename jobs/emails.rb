@@ -1,5 +1,5 @@
-require 'pony'
 require 'erb'
+require_relative '../email'
 require_relative '../models'
 
 votes = Vote.all
