@@ -4,7 +4,7 @@ require 'securerandom'
 if settings.development?
   DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
 else
-  DataMapper.setup(:default, ENV['DATABASE_URL'])
+  DataMapper.setup(:default, ENV['HEROKU_POSTGRESQL_BRONZE_URL'])
 end
 
 class Legislator
