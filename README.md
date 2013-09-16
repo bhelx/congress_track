@@ -6,6 +6,7 @@ The purpose of this project is to create a really simple way to track what your 
 
 ### TODO
 
+* Parse Senate votes
 * Validate zipcode and email uniqueness
 * Design email (need links to information about the votes and direct links to legislators social media pages, emails, phone numbers)
 * Have secondary address option in case zip not accurate
