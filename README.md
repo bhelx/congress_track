@@ -6,8 +6,9 @@ The purpose of this project is to create a really simple way to track what your 
 
 ### TODO
 
+* Validate zipcode and email uniqueness
 * Design email (need links to information about the votes and direct links to legislators social media pages, emails, phone numbers)
-* Change zip lookup to geolocate or geocoding address
+* Have secondary address option in case zip not accurate
 * Give user ability to set email settings
 
 ### Setup
