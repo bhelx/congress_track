@@ -6,13 +6,9 @@ The purpose of this project is to create a really simple way to track what your 
 
 ### TODO
 
-* Design front end
 * Design email (need links to information about the votes and direct links to legislators social media pages, emails, phone numbers)
 * Change zip lookup to geolocate or geocoding address
-* Add information about each congressman to introduction email (have it as another email)
-* Give user ability to choose legislators to follow
 * Give user ability to set email settings
-* Setup SMTP with a real mailserver
 
 ### Setup
 
@@ -49,8 +45,11 @@ You need to preface each command with *bundle exec*
 Current commands:
 
 ```
-rake console      # Pull up a pry console with access to models
-rake emails       # sends emails
-rake legislators  # syncs our legislator data and database entries
-rake votes        # parses latest votes
+rake console            # Pull up a pry console with access to models
+rake emails             # sends emails
+rake legislators        # both sync and parse legislator entries
+rake parse_legislators  # parses legislator data into database entries
+rake sync               # parses new votes and sends reports
+rake sync_legislators   # syncs our legislator data using rsync
+rake votes              # parses latest votes
 ```

@@ -1,7 +1,14 @@
+require 'sinatra'
 require 'data_mapper'
 require 'securerandom'
 
-DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
+DataMapper::Property::String.length(255)
+
+if settings.development?
+  DataMapper.setup :default, "sqlite://#{Dir.pwd}/database.db"
+else
+  DataMapper.setup(:default, ENV['HEROKU_POSTGRESQL_BRONZE_URL'])
+end
 
 class Legislator
   include DataMapper::Resource
@@ -14,7 +21,7 @@ class Legislator
   property :role          , String
   property :state         , String
   property :site          , String
-  property :contact_form  , String
+  property :contact_form  , Text
   property :gender        , String
 
   has n, :voter_votes
@@ -41,8 +48,8 @@ class Vote
 
   property :created_at, DateTime, default: DateTime.now
   property :id, Integer, key: true
-  property :question, String
-  property :question_details, String
+  property :question, Text
+  property :question_details, Text
   property :result, String
   property :total_minus, Integer
   property :total_plus, Integer
@@ -84,7 +91,7 @@ class User
   property :last_email, DateTime, default: DateTime.now # start tracking now, ignore everything before
   property :access_token, String, default: lambda { |p, r| SecureRandom.urlsafe_base64(32) }
 
-  has n, :trackings
+  has n, :trackings, constraint: :destroy
   has n, :legislators, through: :trackings
 
   def self.active
