@@ -4,14 +4,6 @@
 
 The purpose of this project is to create a really simple way to track what your legislators are doing and give you a direct track to providing feedback. The user will enter in their zipcode and their email then choose which of their legislators they want to track. They will get email reports of how their legislators are voting on what issues.
 
-### TODO
-
-* Parse Senate votes
-* Validate zipcode and email uniqueness
-* Design email (need links to information about the votes and direct links to legislators social media pages, emails, phone numbers)
-* Have secondary address option in case zip not accurate
-* Give user ability to set email settings
-
 ### Setup
 
 I'm using rbenv and ruby 1.9.3. Setup ruby how you like.
@@ -55,3 +47,7 @@ rake sync               # parses new votes and sends reports
 rake sync_legislators   # syncs our legislator data using rsync
 rake votes              # parses latest votes
 ```
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
