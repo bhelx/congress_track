@@ -3,13 +3,18 @@ require 'net/http'
 require_relative '../models'
 
 class VoteParser
-  def self.url(datetime)
-    "http://www.govtrack.us/api/v2/vote/?congress=113&chamber=house&session=2013&limit=599&created__gt=#{datetime}"
+  def self.url(chamber, datetime)
+    "http://www.govtrack.us/api/v2/vote/?congress=113&chamber=#{chamber}&session=2013&limit=599&created__gt=#{datetime}"
   end
 
   def self.fetch_since(datetime)
-    response = Net::HTTP.get(URI(self.url(datetime)))
-    votes = JSON.parse(response)['objects']
+    puts self.url('house', datetime)
+    puts self.url('senate', datetime)
+
+    house_response = Net::HTTP.get(URI(self.url('house', datetime)))
+    senate_response = Net::HTTP.get(URI(self.url('senate', datetime)))
+    votes = JSON.parse(house_response)['objects']
+    votes = votes.concat JSON.parse(senate_response)['objects']
 
     return if votes.empty?
 

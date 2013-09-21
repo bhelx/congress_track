@@ -55,6 +55,7 @@ class Vote
   property :total_plus, Integer
   property :total_other, Integer
   property :link, String
+  property :chamber, String
 
   has n, :voter_votes
 
