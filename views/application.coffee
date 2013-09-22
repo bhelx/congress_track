@@ -3,6 +3,7 @@ legislatorsTemplate = "
   <% _.each(legislators, function (legislator) { %>
     <li>
       <label>
+	<img src='http://www.govtrack.us/data/photos/<%= legislator.govtrack_id %>-50px.jpeg'/>
         <input name='legislators[]' value='<%= legislator.govtrack_id %>' type='checkbox' checked />
         <%= legislator.first_name %> <%= legislator.last_name %>
       </label>
