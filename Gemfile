@@ -8,7 +8,7 @@ gem "sinatra"
 gem "data_mapper"
 gem "coffee-script"
 gem "sass"
-gem "therubyracer"
+gem "therubyracer", :platform => :ruby
 gem "pony"
 
 group :production do
