@@ -22,6 +22,11 @@ task :votes do
   ruby "jobs/votes.rb"
 end
 
+desc "Purge old VoterVotes"
+task :purge do
+  ruby "jobs/purge.rb"
+end
+
 desc "parses new votes and sends reports"
 task :sync => ["votes", "emails"]
 
