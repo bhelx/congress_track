@@ -2,8 +2,8 @@
 legislatorsTemplate = "
   <% _.each(legislators, function (legislator) { %>
     <li>
-      <label>
-	<img src='http://www.govtrack.us/data/photos/<%= legislator.govtrack_id %>-50px.jpeg'/>
+      <label class='select-legislator selected'>
+        <img class='legislator-photo' src='http://www.govtrack.us/data/photos/<%= legislator.govtrack_id %>-50px.jpeg' alt='' />
         <input name='legislators[]' value='<%= legislator.govtrack_id %>' type='checkbox' checked />
         <%= legislator.first_name %> <%= legislator.last_name %>
       </label>
@@ -21,6 +21,9 @@ renderLegislators = (response) ->
     $(".signup").attr("data-state", "loaded")
 
 $(document).ready ->
+  $(".legislators").on "change", ".select-legislator input[type='checkbox']", ->
+    $(this).closest(".select-legislator").toggleClass "selected", $(this).prop("checked")
+
   $(".find-legislators").submit (event) ->
     event.preventDefault()
 
