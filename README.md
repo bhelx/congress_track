@@ -26,7 +26,7 @@ cp .env.example .env
 
 To run the web app:
 ```
-foreman start
+env $(cat .env) bundle exec ruby app.rb
 ```
 
 To see the available commands and descriptions:
