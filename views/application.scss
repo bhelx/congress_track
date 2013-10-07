@@ -25,6 +25,7 @@ body {
   color: white;
   font-family: 'Varela', sans-serif;
   width: 57.5em;
+  padding-bottom: 1em;
   margin: 0 auto;
 }
 
@@ -181,6 +182,7 @@ a {
   }
 
   .subscription-info {
+    overflow: hidden;
     display: none;
 
     .legislators {
