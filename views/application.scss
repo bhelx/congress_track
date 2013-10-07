@@ -181,17 +181,34 @@ a {
     .legislators {
       margin-bottom: 1.25em;
       list-style: none;
+      padding-bottom: 0;
       overflow: hidden;
 
       li {
         text-align: left;
         width: 18.5em;
+        margin-bottom: 0.75em;
         float: left;
+
+        &:not(:nth-child(3n+3)) { padding-right: 1em; }
       }
 
-       label {
-        padding: 0.25em 0;
-        display: inline-block;
+      .select-legislator {
+        @extend .btn;
+        width: 100%;
+        padding: 0.5em;
+        opacity: 0.6;
+
+        &.selected { opacity: 1; }
+      }
+
+      input[type='checkbox'] {
+        vertical-align: middle;
+      }
+
+      .legislator-photo {
+        height: 36px;
+        vertical-align: middle;
       }
     }
 
