@@ -20,6 +20,8 @@ renderLegislators = (response) ->
   else
     $(".signup").attr("data-state", "loaded")
 
+  $("html, body").animate {scrollTop: $(document).height()} # deal with vertical SRE issues in a better way later
+
 $(document).ready ->
   $(".legislators").on "change", ".select-legislator input[type='checkbox']", ->
     $(this).closest(".select-legislator").toggleClass "selected", $(this).prop("checked")
