@@ -5,7 +5,7 @@
 
 <form class="find-legislators" method="GET">
   <label class="placeheld-field">
-    <input name="zip" type="number" required />
+    <input id="zip" name="zip" type="number" required />
     <span class="placeholder">Zip code</span>
   </label>
 
@@ -16,6 +16,7 @@
 
 <form class="signup" method="POST">
   <h2>Select legislators to track:</h2>
+  <input id="hidden_zip" name="zip" type="hidden" required />
 
   <p class="loading-indicator">Searching...</p>
   <p class="no-results-message">Your search returned no results.</p>
