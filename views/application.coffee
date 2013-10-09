@@ -31,6 +31,10 @@ $(document).ready ->
     $.getJSON "legislators/#{zip}", renderLegislators
     $(".signup").attr("data-state", "loading").show()
 
+  $("form.signup").submit ->
+    zip = $("#zip").val()
+    $("#hidden_zip").val(zip)
+
   $(".placeheld-field input").each ->
     input = $(this)
 
