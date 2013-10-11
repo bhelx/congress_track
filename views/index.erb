@@ -3,6 +3,12 @@
   <h1>Track the voting activity of your Congress members.</h1>
 </header>
 
+<div class="errors">
+  <% if user.errors.any? %>
+    <%= user.errors.inspect %>
+  <% end %>
+</div>
+
 <form class="find-legislators" method="GET">
   <label class="placeheld-field">
     <input id="zip" name="zip" type="number" required />

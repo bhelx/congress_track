@@ -19,12 +19,12 @@ get '/application.css' do
 end
 
 get '/' do
-  erb :index
+  erb :index, locals: { user: User.new }
 end
 
 post '/' do
   user = User.new params.reject { |k| k == 'legislators' }
-  if user.save!
+  if user.save
     params['legislators'].each do |legislator_id|
       tracking = Tracking.new legislator: Legislator.get(legislator_id), user: user
       tracking.save!
@@ -36,6 +36,8 @@ post '/' do
               body: confirmation_email.result(binding)
 
     erb :subscribed, locals: { user: user }
+  else
+    erb :index, locals: { user: user }
   end
 end
 

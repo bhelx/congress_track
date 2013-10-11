@@ -22,6 +22,12 @@ renderLegislators = (response) ->
 
   $("html, body").animate {scrollTop: $(document).height()} # deal with vertical SRE issues in a better way later
 
+isValidZip = (zip) ->
+  /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip)
+
+renderError = (message) ->
+  $('.errors').html('<p>' + message + '</p>')
+
 $(document).ready ->
   $(".legislators").on "change", ".select-legislator input[type='checkbox']", ->
     $(this).closest(".select-legislator").toggleClass "selected", $(this).prop("checked")
@@ -30,6 +36,10 @@ $(document).ready ->
     event.preventDefault()
 
     zip = $("input[name=zip]").val()
+    unless isValidZip(zip)
+      renderError("Invalid ZIP code")
+      return false
+
     $.getJSON "legislators/#{zip}", renderLegislators
     $(".signup").attr("data-state", "loading").show()
 
