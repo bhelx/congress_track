@@ -22,6 +22,12 @@ renderLegislators = (response) ->
 
   $("html, body").animate {scrollTop: $(document).height()} # deal with vertical SRE issues in a better way later
 
+isValidZip = (zip) ->
+  /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip)
+
+renderError = (message) ->
+  $('ul.errors').append("<li><i class='fa fa-exclamation-triangle'></i> #{message}</li>")
+
 $(document).ready ->
   $(".legislators").on "change", ".select-legislator input[type='checkbox']", ->
     $(this).closest(".select-legislator").toggleClass "selected", $(this).prop("checked")
@@ -30,6 +36,11 @@ $(document).ready ->
     event.preventDefault()
 
     zip = $("input[name=zip]").val()
+    unless isValidZip(zip)
+      renderError("Invalid ZIP code -- Please enter a 5 digit code")
+      return false
+
+    $('ul.errors').empty()
     $.getJSON "legislators/#{zip}", renderLegislators
     $(".signup").attr("data-state", "loading").show()
 

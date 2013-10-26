@@ -95,6 +95,12 @@ class User
   has n, :trackings, constraint: :destroy
   has n, :legislators, through: :trackings
 
+  validates_presence_of :email
+  validates_presence_of :zip
+
+  validates_format_of :email, :as => :email_address
+  validates_format_of :zip, :with => /^\d{5}$/
+
   def self.active
     all(confirmed: true, subscribed: true)
   end
