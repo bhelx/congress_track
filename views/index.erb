@@ -3,13 +3,11 @@
   <h1>Track the voting activity of your Congress members.</h1>
 </header>
 
-<% if user.errors.any? %>
-  <ul class="errors">
-    <% user.errors.to_a.flatten.each do |error| %>
-      <li><i class='fa fa-exclamation-triangle'></i> <%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<ul class="errors">
+  <% user.errors.to_a.flatten.each do |error| %>
+    <li><i class='fa fa-exclamation-triangle'></i> <%= error %></li>
+  <% end %>
+</ul>
 
 <form class="find-legislators" method="GET">
   <label class="placeheld-field">

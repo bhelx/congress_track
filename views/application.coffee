@@ -26,7 +26,7 @@ isValidZip = (zip) ->
   /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip)
 
 renderError = (message) ->
-  $('.errors').html('<p>' + message + '</p>')
+  $('ul.errors').append("<li><i class='fa fa-exclamation-triangle'></i> #{message}</li>")
 
 $(document).ready ->
   $(".legislators").on "change", ".select-legislator input[type='checkbox']", ->
@@ -37,9 +37,10 @@ $(document).ready ->
 
     zip = $("input[name=zip]").val()
     unless isValidZip(zip)
-      renderError("Invalid ZIP code")
+      renderError("Invalid ZIP code -- Please enter a 5 digit code")
       return false
 
+    $('ul.errors').empty()
     $.getJSON "legislators/#{zip}", renderLegislators
     $(".signup").attr("data-state", "loading").show()
 
