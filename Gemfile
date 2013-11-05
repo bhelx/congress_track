@@ -13,6 +13,7 @@ gem "pony"
 
 group :production do
   gem "dm-postgres-adapter"
+  gem "unicorn"
 end
 
 group :development do
