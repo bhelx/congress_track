@@ -1,18 +1,23 @@
 require 'json'
 require 'net/http'
 require_relative '../models'
+require 'open-uri'
 
 class VoteParser
-  def self.url(chamber, datetime)
-    "http://www.govtrack.us/api/v2/vote/?congress=113&chamber=#{chamber}&session=2013&limit=599&created__gt=#{datetime}"
+  def self.votes_uri(chamber, datetime)
+    "https://www.govtrack.us/api/v2/vote/?congress=113&chamber=#{chamber}&session=2013&limit=599&created__gt=#{datetime}"
   end
 
   def self.fetch_since(datetime)
-    puts self.url('house', datetime)
-    puts self.url('senate', datetime)
+    house_uri = self.votes_uri('house', datetime)
+    senate_uri = self.votes_uri('senate', datetime)
 
-    house_response = Net::HTTP.get(URI(self.url('house', datetime)))
-    senate_response = Net::HTTP.get(URI(self.url('senate', datetime)))
+    puts house_uri
+    puts senate_uri
+
+    house_response = open(house_uri).read
+    senate_response = open(senate_uri).read
+
     votes = JSON.parse(house_response)['objects']
     votes = votes.concat JSON.parse(senate_response)['objects']
 
@@ -24,7 +29,8 @@ class VoteParser
       vote = Vote.create_from_gt_vote(gt_vote)
       vote.save!
 
-      vote_data = Net::HTTP.get(URI("http://www.govtrack.us/api/v2/vote_voter/?limit=599&vote=#{vote.id}"))
+      vote_uri = "https://www.govtrack.us/api/v2/vote_voter/?limit=599&vote=#{vote.id}"
+      vote_data = open(vote_uri).read
       gt_voter_votes = JSON.parse(vote_data)['objects']
 
       missing_reps = []
