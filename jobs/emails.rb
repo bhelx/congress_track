@@ -6,6 +6,7 @@ votes = Vote.all
 template = ERB.new(IO.read('./views/emails/report.erb'))
 
 User.active.each do |user|
+
   # find votes that user has yet to see
   unseen_votes = votes.select do |vote|
     vote.created_at > user.last_email
@@ -34,7 +35,8 @@ User.active.each do |user|
               subject: "Latest Votes",
               body: template.result(binding)
 
-    user.update last_email: DateTime.now
+    user.last_email = DateTime.now
+    user.save!
   rescue => e
     puts e
   end

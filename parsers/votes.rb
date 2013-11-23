@@ -9,6 +9,8 @@ class VoteParser
   end
 
   def self.fetch_since(datetime)
+    puts "since #{datetime}"
+
     house_uri = self.votes_uri('house', datetime)
     senate_uri = self.votes_uri('senate', datetime)
 
