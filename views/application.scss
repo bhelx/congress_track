@@ -107,6 +107,10 @@ a {
   &.btn-large {
     width: 50%;
     margin-top: 1em;
+
+    @include respond-to(tiny-screen) {
+      width: 100%;
+    }
   }
 }
 
@@ -142,6 +146,10 @@ a {
   .page-header {
     font-size: 200%;
     margin-bottom: 0;
+
+    @include respond-to(tiny-screen) {
+      font-size: 125%;
+    }
   }
 }
 
