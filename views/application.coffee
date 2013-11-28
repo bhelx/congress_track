@@ -20,7 +20,7 @@ renderLegislators = (response) ->
   else
     $(".signup").attr("data-state", "loaded")
 
-  $("html, body").animate {scrollTop: $(document).height()} # deal with vertical SRE issues in a better way later
+  $("html, body").animate {scrollTop: $('.signup h2').offset().top }
 
 isValidZip = (zip) ->
   /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip)
