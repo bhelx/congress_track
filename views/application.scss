@@ -170,6 +170,10 @@ a {
       font-size: 150%;
       margin-bottom: 0.625em;
     }
+
+    @include respond-to(tiny-screen) {
+      font-size: 100%;
+    }
   }
 }
 
@@ -205,6 +209,7 @@ a {
   }
 
   .explanation {
+    text-align: justify;
     padding-left: 1em;
     margin: 0.375em 0 0;
     overflow: hidden;
