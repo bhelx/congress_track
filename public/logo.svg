@@ -9,19 +9,19 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="101.79034"
+   height="88.790314"
    id="svg2"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="logo.svg"
    sodipodi:version="0.32"
    space="preserve"
    style="fill-rule:evenodd"
-   viewBox="0 0 6.5459272 6.6428565"
+   viewBox="0 0 6.5459272 5.7944725"
    width="100.30497"
    version="1.1"
    inkscape:export-filename="/home/vaerros/projects/congress_track/public/logo.png"
-   inkscape:export-xdpi="180"
-   inkscape:export-ydpi="180">
+   inkscape:export-xdpi="152.53"
+   inkscape:export-ydpi="152.53">
   <metadata
      id="metadata3">
     <rdf:RDF>
@@ -81,18 +81,18 @@
      borderopacity="1.0"
      id="base"
      inkscape:current-layer="svg2"
-     inkscape:cx="98.343436"
-     inkscape:cy="21.394676"
-     inkscape:pageopacity="0.0"
+     inkscape:cx="109.40976"
+     inkscape:cy="55.349966"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-height="844"
-     inkscape:window-width="1600"
-     inkscape:window-x="0"
-     inkscape:window-y="24"
-     inkscape:zoom="2.6671303"
-     pagecolor="#ffffff"
+     inkscape:window-height="834"
+     inkscape:window-width="799"
+     inkscape:window-x="800"
+     inkscape:window-y="27"
+     inkscape:zoom="2.9210916"
+     pagecolor="#060e13"
      showgrid="false"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -107,37 +107,59 @@
    
   </style>
   </defs>
-  <path
-     sodipodi:type="arc"
-     style="fill:#3879d9;fill-opacity:1;stroke:none"
-     id="path3753"
-     sodipodi:cx="41.093437"
-     sodipodi:cy="44.009747"
-     sodipodi:rx="38.972485"
-     sodipodi:ry="42.949268"
-     d="m 80.065922,44.009747 a 38.972485,42.949268 0 1 1 -77.9449694,0 38.972485,42.949268 0 1 1 77.9449694,0 z"
-     transform="matrix(0.05860824,0,0,0.05318155,0.86454964,0.26990032)" />
   <g
-     id="Layer_x0020_1"
-     style="fill:#ffffff"
-     transform="matrix(0.38624731,0,0,0.38624731,1.9677622,1.3607371)">
+     id="g4082"
+     transform="translate(0,0.1305205)">
     <path
-       class="fil0"
-       d="m 1.16462,2.25428 0.551014,0 0.084702,2.96538 -0.709851,2.31e-5 0.074135,-2.96541 z m -0.519312,3.07198 5.46776,0 0,0.381541 0.327616,0 -2.31e-5,0.381541 0.31772,0 0,0.381495 -6.7583900237,-2.31e-5 0,-0.381472 0.3177200037,0 0,-0.381541 0.327593,0 0,-0.381541 z m 5.75292,-3.89995 -3.0191,-1.42632 -3.01915,1.42632 2.312e-5,0.233179 6.03821998,2.31e-5 0,-0.233202 z m -5.4562,0.339872 4.87434,0 0,0.381472 -4.87434,0 0,-0.381472 z m 4.0901,0.488095 0.551014,0 0.084725,2.96541 -0.709851,-2.31e-5 0.074111,-2.96538 z m -1.28917,0 0.551014,2.31e-5 0.084725,2.96536 -0.709874,2.31e-5 0.074135,-2.96541 z m -1.28917,0 0.550991,-2.31e-5 0.084771,2.96541 -0.709897,0 0.074135,-2.96538 z"
-       id="path10"
-       style="fill:#ffffff"
-       inkscape:connector-curvature="0" />
+       transform="matrix(0.05274741,0,0,0.04786339,1.1053912,-0.05075852)"
+       d="m 80.065922,44.009747 c 0,23.720225 -17.448576,42.949268 -38.972485,42.949268 -21.523909,0 -38.9724844,-19.229043 -38.9724844,-42.949268 0,-23.720226 17.4485754,-42.9492688 38.9724844,-42.9492688 21.523909,0 38.972485,19.2290428 38.972485,42.9492688 z"
+       sodipodi:ry="42.949268"
+       sodipodi:rx="38.972485"
+       sodipodi:cy="44.009747"
+       sodipodi:cx="41.093437"
+       id="path3753"
+       style="fill:#336c99;fill-opacity:1;stroke:none"
+       sodipodi:type="arc" />
+    <g
+       id="g4078">
+      <g
+         id="Layer_x0020_1"
+         style="fill:#ffffff"
+         transform="matrix(0.30899784,0,0,0.30899784,2.2288024,1.0559614)">
+        <path
+           class="fil0"
+           d="m 1.16462,2.25428 0.551014,0 0.084702,2.96538 -0.709851,2.31e-5 0.074135,-2.96541 z m -0.519312,3.07198 5.46776,0 0,0.381541 0.327616,0 -2.31e-5,0.381541 0.31772,0 0,0.381495 -6.7583900237,-2.31e-5 0,-0.381472 0.3177200037,0 0,-0.381541 0.327593,0 0,-0.381541 z m 5.75292,-3.89995 -3.0191,-1.42632 -3.01915,1.42632 2.312e-5,0.233179 6.03821998,2.31e-5 0,-0.233202 z m -5.4562,0.339872 4.87434,0 0,0.381472 -4.87434,0 0,-0.381472 z m 4.0901,0.488095 0.551014,0 0.084725,2.96541 -0.709851,-2.31e-5 0.074111,-2.96538 z m -1.28917,0 0.551014,2.31e-5 0.084725,2.96536 -0.709874,2.31e-5 0.074135,-2.96541 z m -1.28917,0 0.550991,-2.31e-5 0.084771,2.96541 -0.709897,0 0.074135,-2.96538 z"
+           id="path10"
+           style="fill:#ffffff"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
   </g>
-  <flowRoot
-     xml:space="preserve"
-     id="flowRoot2994"
-     style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Varela;-inkscape-font-specification:Varela"
-     transform="matrix(0.06526025,0,0,0.06526025,0.15685301,0.9473719)"><flowRegion
-       id="flowRegion2996"><rect
-         id="rect2998"
-         width="102.86616"
-         height="42.419033"
-         x="-3.1814275"
-         y="70.256523"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Varela;-inkscape-font-specification:Varela;fill:#ffffff" /></flowRegion><flowPara
-       id="flowPara3000">Congress Track</flowPara></flowRoot></svg>
+  <g
+     id="g4114">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3964"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#000000;fill-opacity:1;stroke:none;font-family:Varela;-inkscape-font-specification:Varela"
+       transform="matrix(0.06180874,0,0,0.06180874,0.32165911,0.33495239)"><flowRegion
+         id="flowRegion3966"><rect
+           id="rect3968"
+           width="102.86616"
+           height="42.419033"
+           x="-3.1814275"
+           y="70.256523"
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:Varela;-inkscape-font-specification:Varela" /></flowRegion><flowPara
+         id="flowPara3970">Congress Track</flowPara></flowRoot>    <flowRoot
+       transform="matrix(0.06180874,0,0,0.06180874,0.32165911,0.27314426)"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Varela;-inkscape-font-specification:Varela"
+       id="flowRoot2994"
+       xml:space="preserve"><flowRegion
+         id="flowRegion2996"><rect
+           style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Varela;-inkscape-font-specification:Varela"
+           y="70.256523"
+           x="-3.1814275"
+           height="42.419033"
+           width="102.86616"
+           id="rect2998" /></flowRegion><flowPara
+         id="flowPara3000">Congress Track</flowPara></flowRoot>  </g>
+</svg>
