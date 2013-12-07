@@ -27,6 +27,11 @@ task :purge do
   ruby "jobs/purge.rb"
 end
 
+desc "Send email from given url"
+task :url_email, :subject, :url do |t, args|
+  ruby "jobs/url_email.rb", args[:subject], args[:url]
+end
+
 desc "parses new votes and sends reports"
 task :sync => ["votes", "emails"]
 
