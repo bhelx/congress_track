@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
 require 'securerandom'
+require 'google-search'
 
 DataMapper::Property::String.length(255)
 
@@ -56,10 +57,15 @@ class Vote
   property :total_other, Integer
   property :link, String
   property :chamber, String
+  property :popularity, Integer
 
   has n, :voter_votes
 
   def self.create_from_gt_vote(gt_vote)
+    if gt_vote['related_bill']
+      google_search = Google::Search::Web.new query: gt_vote['related_bill']['display_number']
+      gt_vote['popularity'] = google_search.get_response.estimated_count
+    end
     properties = Vote.properties.map(&:name)
     self.new(gt_vote.select { |k, v| { k: v } if properties.include? k.to_sym })
   end

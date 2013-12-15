@@ -2,7 +2,7 @@ require 'erb'
 require_relative '../email'
 require_relative '../models'
 
-votes = Vote.all
+votes = Vote.all(order: [:popularity.desc]) # order by popularity
 template = ERB.new(IO.read('./views/emails/report.erb'))
 
 User.active.each do |user|

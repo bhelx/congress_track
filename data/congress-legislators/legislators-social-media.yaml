@@ -1,3 +1,22 @@
+# Please note before submitting pull requests:
+#
+# Our policy is to accept only social media accounts that are run as
+# part of the Member of Congress's "official" legislative role. In other
+# words, taxpayer-funded accounts, and not campaign or personal
+# accounts. There are actually strict rules separating these two
+# functions: an account used to support a legislator's political
+# campaign may not be supported using their official taxpayer-supported
+# funds, for example.
+#
+# When in doubt, we verify accounts by looking at a legislator's
+# official website and seeing what they link to. Kelly Ayotte, for
+# example, has everything but Twitter at the top of her Senate home
+# page, and @KellyAyotte doesn't link to her Senate home page. This
+# appears to be her campaign account.
+#
+# When it's ambiguous, we'll actually make phone calls to the office and
+# have the press staff confirm their official account.
+
 - id:
     bioguide: Y000064
     thomas: '02019'
@@ -1836,6 +1855,7 @@
     facebook: Rep.Billy.Long
     youtube: MOdistrict7
     facebook_id: '139631049438354'
+    twitter: USRepLong
     youtube_id: UCLQcbyxpHXXAsUJckscQY8g
 - id:
     bioguide: L000575
@@ -1895,6 +1915,7 @@
     facebook: CongressmanLance
     youtube: CongressmanLance
     facebook_id: '100830109970339'
+    twitter: RepLanceNJ7
     youtube_id: UCASO5iqjLfU4jo8xKKZIq8g
 - id:
     bioguide: L000566
@@ -4937,6 +4958,7 @@
     govtrack: 412278
   social:
     youtube: BrettGuthrie
+    twitter: RepGuthrie
     youtube_id: UCdJhDw-YbdH0RHfWK0sIfiw
 - id:
     bioguide: Y000031
@@ -5046,6 +5068,9 @@
     govtrack: 412507
   social:
     twitter: SenBrianSchatz
+    facebook: SenBrianSchatz
+    youtube: senbrianschatz
+    facebook_id: '357806137657533'
 - id:
     bioguide: S001168
     govtrack: 412212
@@ -5180,3 +5205,9 @@
     twitter: chrismurphyct
     youtube: senchrismurphy
     youtube_id: UCbcEa40PIFpLpdDe06n3F3Q
+- id:
+    bioguide: B001288
+    govtrack: 412598
+    thomas: '02194'
+  social:
+    twitter: SenBookerOfc

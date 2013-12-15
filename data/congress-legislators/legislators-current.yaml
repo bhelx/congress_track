@@ -8,7 +8,7 @@
     fec:
     - H2OH13033
     - S6OH00163
-    cspan: 26171
+    cspan: 5051
     wikipedia: Sherrod Brown
     house_history: 9996
     ballotpedia: Sherrod Brown
@@ -3180,7 +3180,6 @@
     url: http://www.tomudall.senate.gov
     address: 110 HART SENATE OFFICE BUILDING WASHINGTON DC 20510
     phone: 202-224-6621
-    fax: 202-226-1331
     contact_form: http://www.tomudall.senate.gov/?p=contact
     office: 110 Hart Senate Office Building
     state_rank: senior
@@ -9903,7 +9902,6 @@
     url: http://www.defazio.house.gov
     address: 2134 Rayburn HOB; Washington DC 20515-3704
     phone: 202-225-6416
-    fax: 202-225-0032
     contact_form: https://forms.house.gov/defazio/IMA/contact.html
     office: 2134 Rayburn House Office Building
     rss_url: http://www.defazio.house.gov/index.php?format=feed&amp;type=rss
@@ -13358,7 +13356,7 @@
     url: http://gosar.house.gov
     address: 504 Cannon HOB; Washington DC 20515-0301
     phone: 202-225-2315
-    fax: 200-226-9739
+    fax: 202-226-9739
     office: 504 Cannon House Office Building
     rss_url: http://gosar.house.gov/rss.xml
     contact_form: http://gosar.house.gov/contact-me/email-me
@@ -14673,7 +14671,7 @@
     url: http://hartzler.house.gov
     address: 1023 Longworth HOB; Washington DC 20515-2504
     phone: 202-225-2876
-    fax: 202- 225-2695
+    fax: 202-225-0148
     office: 1023 Longworth House Office Building
     rss_url: http://hartzler.house.gov/rss.xml
     contact_form: http://hartzler.house.gov/contact-me/email-me
@@ -30456,7 +30454,7 @@
     url: http://stutzman.house.gov
     address: 1728 Longworth HOB; Washington DC 20515-1403
     phone: 202-225-4436
-    fax: 202-225-3479
+    fax: 202-226-9870
     office: 1728 Longworth House Office Building
     rss_url: http://stutzman.house.gov/press_releases.rss
     contact_form: http://stutzman.house.gov/contacts/new
@@ -32290,7 +32288,7 @@
     url: http://wassermanschultz.house.gov
     address: 118 Cannon HOB; Washington DC 20515-0920
     phone: 202-225-7931
-    fax: 202-225-2052
+    fax: 202-226-2052
     contact_form: http://wassermanschultz.house.gov/contact/email-me.shtml
     office: 118 Cannon House Office Building
     rss_url: http://wassermanschultz.house.gov/atom.xml
@@ -37572,11 +37570,13 @@
     bioguide: M001192
     govtrack: 412599
     votesmart: 145379
+    thomas: '02195'
     cspan: 73009
     wikipedia: Vance McAllister
   name:
     first: Vance
     last: McAllister
+    official_full: Vance M. McAllister
   bio:
     birthday: '1974-01-07'
     gender: M
@@ -37587,3 +37587,28 @@
     state: LA
     district: 5
     party: Republican
+    url: http://mcallister.house.gov
+    phone: 202-225-8490
+    address: 316 Cannon HOB; Washington DC 20515-1805
+    office: 316 Cannon House Office Building
+- id:
+    bioguide: C001101
+    thomas: '02196'
+    govtrack: 412600
+    votesmart: 35858
+    wikipedia: Katherine Clark
+  name:
+    first: Katherine
+    middle: M.
+    last: Clark
+  bio:
+    birthday: '1963-07-17'
+    gender: F
+  terms:
+  - type: rep
+    start: '2013-12-12'
+    end: '2015-01-03'
+    state: MA
+    party: Democrat
+    district: 5
+    url: http://katherineclark.house.gov

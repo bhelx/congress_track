@@ -1,7 +1,8 @@
 require 'json'
 require 'net/http'
-require_relative '../models'
 require 'open-uri'
+require 'google-search'
+require_relative '../models'
 
 class VoteParser
   def self.votes_uri(chamber, datetime)

@@ -10,6 +10,7 @@ gem "coffee-script"
 gem "sass"
 gem "therubyracer", :platform => :ruby
 gem "pony"
+gem "google-search"
 
 group :production do
   gem "dm-postgres-adapter"
