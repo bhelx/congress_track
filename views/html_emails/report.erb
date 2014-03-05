@@ -53,16 +53,18 @@
                                       <table border="0" cellpadding="20" cellspacing="0" width="100%" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;border-collapse: collapse;">
                                         <tr>
                                           <td class="leftColumnContent" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #505050;font-family: Helvetica;font-size: 14px;line-height: 150%;padding-top: 0;padding-right: 20px;padding-bottom: 20px;padding-left: 20px;text-align: left;">
-                                            <img src="https://www.govtrack.us/data/photos/<%= voter_vote.legislator.id %>-100px.jpeg" style="max-width: 260px;-ms-interpolation-mode: bicubic;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;" class="columnImage" mc:label="left_column_image" mc:edit="left_column_image">
+                                            <a href="https://www.govtrack.us/congress/members/<%= voter_vote.legislator.id %>" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration: underline;border:0;">
+                                              <img src="https://www.govtrack.us/data/photos/<%= voter_vote.legislator.id %>-100px.jpeg" style="max-width: 260px;-ms-interpolation-mode: bicubic;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;" class="columnImage" mc:label="left_column_image" mc:edit="left_column_image">
+                                            </a>
                                             <%= "<img src='#{ENV['APPLICATION_URL']}/#{voter_vote.vote_image}' alt='#{voter_vote.option_value}' style='-ms-interpolation-mode: bicubic;border: 0;margin-bottom: 15px; margin-left: 15px; height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;'>" if voter_votes[0].vote_image %>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td valign="top" class="leftColumnContent" mc:edit="left_column_content" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #505050;font-family: Helvetica;font-size: 14px;line-height: 150%;padding-top: 0;padding-right: 20px;padding-bottom: 20px;padding-left: 20px;text-align: left;">
                                             <h3 style="display: block;font-family: Helvetica;font-size: 16px;font-style: italic;font-weight: normal;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #606060;">
-                                              <%= "#{voter_vote.legislator.first_name} #{voter_vote.legislator.last_name}" %>
+                                              <%= "#{voter_vote.legislator.full_name_and_designation}" %>
                                             </h3>
-                                            <%= voter_vote.legislator.party %>
+                                            <%#= voter_vote.legislator.party %>
                                           </td>
                                         </tr>
                                       </table>
