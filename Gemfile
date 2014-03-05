@@ -20,4 +20,5 @@ group :development do
   gem "dm-sqlite-adapter"
   gem "pry"
   gem "foreman"
+  gem "letter_opener"
 end

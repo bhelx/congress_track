@@ -1,7 +1,13 @@
 require 'sinatra'
 require 'pony'
 
-unless settings.development?
+if settings.development?
+  require "letter_opener"
+  Pony.options = {
+    :via => LetterOpener::DeliveryMethod,
+    :via_options => {:location => File.expand_path('../tmp/letter_opener', __FILE__)}
+  }
+else
   Pony.options = {
     :via => :smtp,
     :via_options => {

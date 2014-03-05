@@ -64,6 +64,13 @@ class Vote
     self.new(gt_vote.select { |k, v| { k: v } if properties.include? k.to_sym })
   end
 
+  def result_color
+    case result
+    when /Failed/i, /Rejected/i then "CC3300"
+    else "006600"
+    end
+  end
+
 end
 
 class VoterVote
@@ -78,6 +85,12 @@ class VoterVote
   belongs_to :vote
   belongs_to :legislator
 
+  def vote_image
+    case option_value
+    when /yea/i, /aye/i then "yea.png"
+    when /nay/i, /no/i then "nay.png"
+    end
+  end
 end
 
 class User
@@ -91,6 +104,7 @@ class User
   property :created_at, DateTime, default: DateTime.now
   property :last_email, DateTime, default: DateTime.now # start tracking now, ignore everything before
   property :access_token, String, default: lambda { |p, r| SecureRandom.urlsafe_base64(32) }
+  property :use_html_email, Boolean, default: true
 
   has n, :trackings, constraint: :destroy
   has n, :legislators, through: :trackings
@@ -117,4 +131,3 @@ class Tracking
 end
 
 DataMapper.auto_upgrade!
-

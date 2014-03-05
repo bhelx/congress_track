@@ -5,7 +5,7 @@ require 'open-uri'
 
 class VoteParser
   def self.votes_uri(chamber, datetime)
-    "https://www.govtrack.us/api/v2/vote/?congress=113&chamber=#{chamber}&session=2013&limit=599&created__gt=#{datetime}"
+    "https://www.govtrack.us/api/v2/vote/?congress=113&chamber=#{chamber}&session=2014&limit=599&created__gt=#{datetime}"
   end
 
   def self.fetch_since(datetime)
@@ -62,6 +62,3 @@ class VoteParser
   end
 
 end
-
-
-

@@ -3,7 +3,8 @@ require_relative '../email'
 require_relative '../models'
 
 votes = Vote.all
-template = ERB.new(IO.read('./views/emails/report.erb'))
+plain_template = ERB.new(IO.read('./views/emails/report.erb'))
+html_template = ERB.new(IO.read('./views/html_emails/report.erb'))
 
 User.active.each do |user|
 
@@ -30,10 +31,18 @@ User.active.each do |user|
 
   # send the mail and update the user object if it worked
   begin
-    Pony.mail to: user.email,
-              from: "noreply@congresstrack.org",
-              subject: "Latest Votes",
-              body: template.result(binding)
+    if user.use_html_email
+      Pony.mail to: user.email,
+                from: "noreply@congresstrack.org",
+                subject: "Latest Votes",
+                headers: { 'Content-Type' => 'text/html' },
+                body: html_template.result(binding)
+    else
+      Pony.mail to: user.email,
+                from: "noreply@congresstrack.org",
+                subject: "Latest Votes",
+                body: template.result(binding)
+    end
 
     user.last_email = DateTime.now
     user.save!
@@ -42,4 +51,3 @@ User.active.each do |user|
   end
 
 end
-
