@@ -33,13 +33,13 @@ User.active.each do |user|
   begin
     if user.use_html_email
       Pony.mail to: user.email,
-                from: "noreply@congresstrack.org",
+                from: "Congress Track <noreply@congresstrack.org>",
                 subject: "Latest Votes",
                 headers: { 'Content-Type' => 'text/html' },
                 body: html_template.result(binding)
     else
       Pony.mail to: user.email,
-                from: "noreply@congresstrack.org",
+                from: "Congress Track <noreply@congresstrack.org>",
                 subject: "Latest Votes",
                 body: template.result(binding)
     end
