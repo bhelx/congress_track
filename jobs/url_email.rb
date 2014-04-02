@@ -11,7 +11,7 @@ User.active.each do |user|
   # send the mail and update the user object if it worked
   begin
     Pony.mail to: user.email,
-              from: "noreply@congresstrack.org",
+              from: "Congress Track <noreply@congresstrack.org>",
               subject: subject,
               body: template.result(binding)
 
