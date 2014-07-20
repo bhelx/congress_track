@@ -30,11 +30,15 @@
   <div class="subscription-info">
     <ul class="legislators"></ul>
 
-    <label class="email placeheld-field">
-      <input name="email" type="email" required />
-      <span class="placeholder">Email address</span>
-    </label>
+    <% if user.persistence_state? %>
+      <button class="centered" type="submit">Update</button>
+    <% else %>
+      <label class="email placeheld-field">
+        <input name="email" type="email" required />
+        <span class="placeholder">Email address</span>
+      </label>
 
-    <button type="submit">Sign up for updates</button>
+      <button type="submit">Sign up for updates</button>
+    <% end %>
   </div>
 </form>

@@ -45,13 +45,17 @@ get '/legislators/:zip' do
   SunlightApi.legislators_locate(params[:zip]).to_json
 end
 
-get '/users/:token' do
-  user = User.first access_token: params[:token]
-  erb :user, locals: { user: user }
+
+def token_user
+  @user ||= begin
+              user = User.first access_token: params[:token]
+              halt 404, 'invalid token' unless user
+              user
+            end
 end
 
 get '/users/:token/confirm' do
-  user = User.first access_token: params[:token]
+  user = token_user
   user.update confirmed: true
 
   Pony.mail to: user.email,
@@ -62,9 +66,31 @@ get '/users/:token/confirm' do
   erb :confirmed, locals: { user: user }
 end
 
+get '/users/:token' do
+  erb :user, locals: { user: token_user }
+end
+
 post '/users/:token' do
-  user = User.first access_token: params[:token]
-  user.update subscribed: params[:subscribed]
-  erb :unsubscribed, locals: { user: user }
+  token_user.update subscribed: params[:subscribed]
+  erb :unsubscribed, locals: { user: token_user }
+end
+
+get '/users/:token/change-zip' do
+  erb :index, locals: { user: token_user }
+end
+
+post '/users/:token/change-zip' do
+  if token_user.update(zip: params[:zip])
+    token_user.trackings.each { |tracking| tracking.destroy }
+
+    params['legislators'].each do |legislator_id|
+      tracking = Tracking.new legislator: Legislator.get(legislator_id), user: token_user
+      tracking.save!
+    end
+
+    erb :user, locals: { user: token_user }
+  else
+    erb :index, locals: { user: token_user }
+  end
 end
 

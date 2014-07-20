@@ -6,3 +6,11 @@
   <input type="hidden" name="subscribed" value="false">
   <button class="unsubscribe btn-large" type="submit">Unsubscribe</button>
 </form>
+
+<form action="/users/<%= user.access_token %>/change-zip" class="secondary-page">
+  <h1 class='page-header'>Moved recently? Change your ZIP code</h1>
+
+  <p>Your current ZIP is <strong class='keyword'><%= user.zip %></strong></p>
+
+  <button class="btn-large" type="submit">Change ZIP</button>
+</form>

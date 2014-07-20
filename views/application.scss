@@ -329,6 +329,12 @@ a {
     button {
       float: right;
     }
+
+    button.centered {
+      float: none;
+      margin: 0 auto;
+    }
+
   }
 
   // form states

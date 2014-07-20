@@ -41,7 +41,7 @@ $(document).ready ->
       return false
 
     $('ul.errors').empty()
-    $.getJSON "legislators/#{zip}", renderLegislators
+    $.getJSON "/legislators/#{zip}", renderLegislators
     $(".signup").attr("data-state", "loading").show()
 
   $("form.signup").submit ->
