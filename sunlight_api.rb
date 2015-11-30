@@ -1,4 +1,5 @@
 require 'net/http'
+require 'json'
 
 class SunlightApi
   KEY = ENV['SUNLIGHT_KEY']

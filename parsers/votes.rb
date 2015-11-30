@@ -3,9 +3,11 @@ require 'net/http'
 require_relative '../models'
 require 'open-uri'
 
+CONGRESS = 114
+
 class VoteParser
   def self.votes_uri(chamber, datetime)
-    "https://www.govtrack.us/api/v2/vote/?congress=113&chamber=#{chamber}&session=#{DateTime.now.year}&limit=599&created__gt=#{datetime}"
+    "https://www.govtrack.us/api/v2/vote/?congress=#{CONGRESS}&chamber=#{chamber}&session=#{DateTime.now.year}&limit=599&created__gt=#{datetime}"
   end
 
   def self.fetch_since(datetime)

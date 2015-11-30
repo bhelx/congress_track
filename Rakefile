@@ -18,8 +18,8 @@ task :emails do
 end
 
 desc "parses latest votes"
-task :votes do
-  ruby "jobs/votes.rb"
+task :votes, [:fetch_time] do |t, args|
+  ruby "jobs/votes.rb #{args[:fetch_time]}"
 end
 
 desc "Purge old VoterVotes"
@@ -32,11 +32,16 @@ task :url_email, :subject, :url do |t, args|
   ruby "jobs/url_email.rb", args[:subject], args[:url]
 end
 
+desc "Turnover script to be run after elections"
+task :turnover do
+  ruby "jobs/turnover.rb"
+end
+
 desc "parses new votes and sends reports"
 task :sync => ["votes", "emails"]
 
 desc "Pull up a pry console with access to models"
 task :console do
-  sh "pry -r./models.rb"
+  sh "pry"
 end
 
